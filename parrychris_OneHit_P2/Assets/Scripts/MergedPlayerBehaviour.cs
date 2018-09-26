@@ -205,6 +205,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             animator.SetBool("Grounded", true);
             grounded = true;
+        }else{
+            animator.SetBool("Grounded", false);
+            grounded = false;
         }
     }
 
