@@ -205,10 +205,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             animator.SetBool("Grounded", true);
             grounded = true;
-        }else{
-            animator.SetBool("Grounded", false);
-            grounded = false;
         }
+        //this code seems to make the character bounce off the other ones head, not sure why...
+        //else{
+        //    animator.SetBool("Grounded", false);
+        //    grounded = false;
+        //}
     }
 
     private void Block()
