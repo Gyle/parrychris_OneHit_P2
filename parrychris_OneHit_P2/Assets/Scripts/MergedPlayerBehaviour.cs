@@ -27,7 +27,15 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private bool grounded = true;
     private bool dashing = false;
     private bool dashDir = false;
+
     private bool shieldUp = false;
+    //Blocking cooldown
+    private float blockCD = 1;
+    private float nextBlock = 0;
+    //Blocking duration
+    private float currentBlockDur = 0;
+    private float maxBlockDur = 1;
+
     private bool gameOver = false;
     private bool won = false;
 
@@ -96,10 +104,20 @@ public class MergedPlayerBehaviour : MonoBehaviour
             LaunchAttack(attackHitboxes[0]);
         }
         //Block 
-        else if (Input.GetKeyDown(this.block))
+        /************Changed************/
+        else if (Input.GetKey(this.block))
         {
             Block();
+        } else if (Input.GetKeyUp(this.block)) {
+        	if(shieldUp) {
+        		nextBlock = Time.time + blockCD;
+        	}
+        	shieldUp = false;
+        	animator.SetBool("Block", shieldUp);
+        	GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
+        	ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
         }
+        /************Changed************/
         //Restart button (for development)
         else if (Input.GetKey(KeyCode.Delete))
         {
@@ -215,13 +233,26 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
     private void Block()
     {
-        //toggle shield on/off
-        shieldUp = !shieldUp;
-        //set animator variable Block to true
-        animator.SetBool("Block", shieldUp);
-        //Activate blue shield sprite
-        GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
-        ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
+    	if(shieldUp) {
+    		if(Time.time > currentBlockDur) {
+    			shieldUp = false;
+    			nextBlock = Time.time + blockCD;
+    		}
+
+    	} else {
+    		if(Time.time > nextBlock) {
+    			shieldUp = true;
+        		currentBlockDur = Time.time + maxBlockDur;
+    		} else {
+    			return;
+    		}
+        	
+    	}
+    		//set animator variable Block to true
+    		animator.SetBool("Block", shieldUp);
+        	//Activate blue shield sprite
+        	GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
+        	ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
     }
 
     private void Dash()
