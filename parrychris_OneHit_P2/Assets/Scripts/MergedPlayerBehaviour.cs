@@ -240,11 +240,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
     		}
         	
     	}
-    		//set animator variable Block to true
-    		animator.SetBool("Block", shieldUp);
-        	//Activate blue shield sprite
-        	GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
-        	ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
+    	//set animator variable Block to true
+    	animator.SetBool("Block", shieldUp);
+        //Activate blue shield sprite
+        GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
+        ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
     }
 
     private void Dash()
