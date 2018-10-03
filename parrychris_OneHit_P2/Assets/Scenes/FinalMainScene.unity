@@ -4854,12 +4854,11 @@ MonoBehaviour:
   dash: 274
   block: 307
   jab: 303
-  character: 
+  enemy: {fileID: 1565138146}
+  canvas: {fileID: 721930783}
   attackHitboxes:
   - {fileID: 1986714499}
   animator: {fileID: 0}
-  enemy: {fileID: 1565138146}
-  canvas: {fileID: 721930783}
 --- !u!61 &1053227048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6996,12 +6995,11 @@ MonoBehaviour:
   dash: 115
   block: 101
   jab: 304
-  character: fast
+  enemy: {fileID: 1053227042}
+  canvas: {fileID: 721930783}
   attackHitboxes:
   - {fileID: 882408433}
   animator: {fileID: 0}
-  enemy: {fileID: 1053227042}
-  canvas: {fileID: 721930783}
 --- !u!212 &1565138152
 SpriteRenderer:
   m_ObjectHideFlags: 0
