@@ -8,53 +8,45 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
     public KeyCode left, right, jump, dash, block, jab;
 
-    //Public variables can be set in Unity Inspector
+    //Dash
     private int dashSpeed = 5000;
     private float dashCooldown = 1;
     private float dashLength = 0.2f;
-
-    private float jumpSpeed = 30;
-    private float playerSpeed = 9;
-
-    public GameObject enemy;
-    public Canvas canvas;
-    public Collider2D[] attackHitboxes;
-    public Animator animator;
-
-    private Rigidbody2D rb2d;
-    private MergedPlayerBehaviour enemyScript;
-
-    private bool grounded = true;
     private bool dashing = false;
     private bool dashDir = false;
+    private float nextDash = 1;
+    private float dashStop;
 
+    //Jumping
+    private float jumpSpeed = 30;
+    private bool grounded = true;
+
+    //Blocking
     private bool shieldUp = false;
-    //Blocking cooldown
     private float blockCD = 1;
     private float nextBlock = 0;
-    //Blocking duration
     private float currentBlockDur = 0;
     private float maxBlockDur = 1;
 
-    private bool gameOver = false;
-    private bool won = false;
-
-    private bool slidingoffhead = false;
-
-    //Time the game ended
-    private float gameOverTime;
-    //Time to waait before new game starts
-    private float gameOverWait = 1f;
-
-    //Is the player on the right hand side of the other player?
-    private bool onRightSide = true;
-    //Used to calculate movement vector for horizontal movement
+    //Movement
+    private float playerSpeed = 9;
     private float moveVelocity;
 
-    //Time the players next dash is available
-    private float nextDash = 1;
-    //Time the player will stop dashing
-    private float dashStop;
+    //Player
+    private bool onRightSide = true;
+    private bool slidingoffhead = false;
+    public Collider2D[] attackHitboxes;
+    public Animator animator;
+
+    //Game
+    public GameObject enemy;
+    public Canvas canvas;
+    private Rigidbody2D rb2d;
+    private MergedPlayerBehaviour enemyScript;
+    private bool gameOver = false;
+    private bool won = false;
+    private float gameOverTime;
+    private float gameOverWait = 1f;
 
     // Use this for initialization
     void Start()
