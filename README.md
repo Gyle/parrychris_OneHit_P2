@@ -94,6 +94,7 @@ add new map after adding map interactions
 extra moves
   - double jump
   - Feint attack (looks like a dash to try trick the opponent into blocking)
+  - ~~slam attack~~
   
 sound
 - roblox death sound
@@ -110,6 +111,7 @@ player interaction
  - maybe change one hit death system?
  - gun, strong but backfires player
  - duck high jabs
+ - ~~timed block~~
  
  
 animations
