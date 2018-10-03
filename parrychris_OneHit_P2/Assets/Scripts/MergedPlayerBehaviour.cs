@@ -21,6 +21,8 @@ public class MergedPlayerBehaviour : MonoBehaviour
     //Jumping
     private float jumpSpeed = 30;
     private bool grounded = true;
+    private bool doubleJump = false;
+    private int jumpCount = 0;
 
     //Blocking
     private bool shieldUp = false;
@@ -34,6 +36,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private float moveVelocity;
 
     //Player
+    public string character = "default";
     private bool onRightSide = true;
     private bool slidingoffhead = false;
     public Collider2D[] attackHitboxes;
@@ -56,6 +59,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         enemyScript = enemy.GetComponent<MergedPlayerBehaviour>();
+
+        if(character == "fast") {
+            Debug.Log(this.gameObject.name + " has selected " + character);
+            this.playerSpeed = 12;
+            doubleJump = true;
+        }
     }
 
     // Called every frame
@@ -74,7 +83,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
 
         //  Jump
-        if (Input.GetKey(this.jump))
+        if (Input.GetKeyDown(this.jump))
         {   //sets animator variables to true
             animator.SetBool("isJumping", true);
             animator.SetBool("Grounded", false);
@@ -216,6 +225,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             animator.SetBool("Grounded", true);
             grounded = true;
+            jumpCount = 0;
         }
         //this code seems to make the character bounce off the other ones head, not sure why...
         //else{
@@ -299,14 +309,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private void Jump()
     {
         //check player is grounded before jumping
-        if (grounded)
+        Debug.Log("Double: " + doubleJump + ", jumpCount: " + jumpCount);
+        if (grounded || (doubleJump && jumpCount < 2))
         {
-            rb2d.velocity = new Vector2(
-                rb2d.velocity.x, jumpSpeed);
-            //set isGrounded && isJumping variables in animator to true
-            animator.SetBool("isGrounded", true);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             animator.SetBool("isJumping", false);
             grounded = false;
+            jumpCount++;
         }
     }
 
