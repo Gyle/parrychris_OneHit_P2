@@ -112,7 +112,7 @@ player interaction
  - gun, strong but backfires player
  - duck high jabs
  - ~~timed block~~
- - small knockback on successfull block
+ - small knockback on successful block
  
  
 animations
