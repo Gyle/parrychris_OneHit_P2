@@ -7,6 +7,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
 {
 
     public KeyCode left, right, jump, dash, block, jab;
+    public bool isPlayer1;
 
     //Dash
     private int dashSpeed = 5000;
@@ -46,7 +47,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private bool gameOver = false;
     private bool won = false;
     private float gameOverTime;
-    private float gameOverWait = 1f;
+    private float gameOverWait = 2f;
 
     // Use this for initialization
     void Start()
@@ -337,9 +338,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
     {
         if (!gameOver)
         {
-            //Turn on win message - not working
-            //GameObject child = canvas.transform.GetChild(1).gameObject;
-            //child.gameObject.GetComponent<Text>().enabled = true;
+            //Turn on win message - player 1 win message must be first child of canvas.
+            int childIndex = this.isPlayer1 ? 0 : 1;
+            GameObject child = canvas.transform.GetChild(childIndex).gameObject;
+            child.gameObject.GetComponent<Text>().enabled = true;
+
             gameOverTime = Time.time;
             gameOver = true;
             enemyScript.SetGameOver(true);
