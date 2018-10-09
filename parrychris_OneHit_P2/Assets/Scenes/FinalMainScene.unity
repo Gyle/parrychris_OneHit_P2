@@ -4964,20 +4964,13 @@ MonoBehaviour:
   dash: 274
   block: 307
   jab: 303
-<<<<<<< HEAD
   isPlayer1: 1
-=======
-  character: 
->>>>>>> 4ff66e8248a0c3a47b7846017c5a945c6658b52b
+  character: default
   attackHitboxes:
   - {fileID: 1986714499}
   animator: {fileID: 0}
   enemy: {fileID: 1565138146}
-<<<<<<< HEAD
   canvas: {fileID: 503501985}
-=======
-  canvas: {fileID: 721930783}
->>>>>>> 4ff66e8248a0c3a47b7846017c5a945c6658b52b
 --- !u!61 &1053227048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7266,20 +7259,13 @@ MonoBehaviour:
   dash: 115
   block: 101
   jab: 304
-<<<<<<< HEAD
   isPlayer1: 0
-=======
-  character: fast
->>>>>>> 4ff66e8248a0c3a47b7846017c5a945c6658b52b
+  character: default
   attackHitboxes:
   - {fileID: 882408433}
   animator: {fileID: 0}
   enemy: {fileID: 1053227042}
-<<<<<<< HEAD
   canvas: {fileID: 503501985}
-=======
-  canvas: {fileID: 721930783}
->>>>>>> 4ff66e8248a0c3a47b7846017c5a945c6658b52b
 --- !u!212 &1565138152
 SpriteRenderer:
   m_ObjectHideFlags: 0
