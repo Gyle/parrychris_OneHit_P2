@@ -71,33 +71,33 @@ Powerups
   - double jump
   - movement speed buff
   - longer hitbox
-  - frame recovery
+  - ~~frame recovery~~
   - weapon
   
 UI
   - welcome screen
   - new round. best of 3
-  - show end game
+  - ~~show end game~~
 
-controller 
+
 
 - map interactions
-  - walk on roof
+  - ~~walk on roof~~
   - worm holes
   - map hazards that kill player / stun / slowdown / push player
   - wall breaks (cinematic of moving to the next level)
   
 add new map after adding map interactions
 
-- expand level size
+- ~~expand level size~~
 
 extra moves
-  - double jump
+  - ~~double jump~~
   - Feint attack (looks like a dash to try trick the opponent into blocking)
   - ~~slam attack~~
   
 sound
-- roblox death sound
+- death sound
 - background music
 - getting powerup
 - hit sound'
@@ -106,13 +106,14 @@ player interaction
  - slow motion on near hit
  - consider time it takes to fist to reach player
  - blocking too much means u can get stunned.
- - blocking means you can only move backwards. No jumping or forward movement.
+ - ~~blocking means you can only move backwards. No jumping or forward movement.~~
  - combo system ( player has strings )
  - maybe change one hit death system?
  - gun, strong but backfires player
  - duck high jabs
  - ~~timed block~~
  - small knockback on successful block
+ - controller support
  
  
 animations
@@ -122,7 +123,7 @@ animations
   
  roster
   - different characters with their own moveset
-  - different attributes eg fast ass thats strong but slow, agile ninja?
+  - different attributes eg big person thats strong but slow, agile ninja?
   
  
   
