@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MergedPlayerBehaviour : MonoBehaviour
 {
 
-    public KeyCode left, right, jump, dash, block, jab;
+    public KeyCode left, right, jump, dash, block, jab, groundPound;
     public bool isPlayer1;
 
     //Dash
@@ -39,6 +39,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     public string character = "default";
     private bool onRightSide = true;
     private bool slidingoffhead = false;
+    private bool groundpounding = false;
     public Collider2D[] attackHitboxes;
     public Animator animator;
 
@@ -81,6 +82,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             Dash();
         }
+
+        // Ground Pound
+        if (groundpounding)
+        {
+            LaunchAttack(attackHitboxes[1]);
+        }
+
 
         //  Jump
         if (Input.GetKeyDown(this.jump))
@@ -167,7 +175,15 @@ public class MergedPlayerBehaviour : MonoBehaviour
             rb2d.velocity = new Vector2(moveVelocity,
                 rb2d.velocity.y);
         }
-        else if(!grounded){//player is in the air and can move left/right at half speed.
+        else if(!grounded){
+            // perform ground pound movement if in the air
+            if (Input.GetKey(this.groundPound) && !grounded)
+            {
+                groundpounding = true;
+                GroundPound();
+            }
+
+            //player is in the air and can move left/right at half speed.
             //move left
             if (Input.GetKey(this.left) && !shieldUp)
             {
@@ -194,6 +210,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             slidingoffhead = false;
             grounded = true;
+            groundpounding = false;
         }
         else if (coll.transform.tag.Contains("Head"))
         {
@@ -209,6 +226,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             grounded = false;
         }
+    }
+
+    // this method accelerates the player faster toward the ground
+    private void GroundPound()
+    {
+        rb2d.velocity = new Vector2(
+                rb2d.velocity.x, -jumpSpeed);
     }
 
     // this method will push the player off the other player's head

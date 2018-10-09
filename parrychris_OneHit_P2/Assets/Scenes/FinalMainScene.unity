@@ -853,6 +853,60 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &195212393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195212394}
+  - component: {fileID: 195212395}
+  m_Layer: 0
+  m_Name: GroundPound2
+  m_TagString: Melee
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &195212394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 195212393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.1, y: -4.5, z: 0.2969767}
+  m_LocalScale: {x: 2, y: 0.9999973, z: 0.9999973}
+  m_Children: []
+  m_Father: {fileID: 1086394226}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &195212395
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 195212393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.67808, y: -0.616632}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.011, y: 0.91320324}
+  m_EdgeRadius: 0
 --- !u!1001 &202306687
 Prefab:
   m_ObjectHideFlags: 0
@@ -1268,6 +1322,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1986714498}
+  - {fileID: 1860976559}
   m_Father: {fileID: 1053227046}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4961,13 +5016,15 @@ MonoBehaviour:
   left: 276
   right: 275
   jump: 273
-  dash: 274
+  dash: 305
   block: 307
   jab: 303
+  groundPound: 274
   isPlayer1: 1
   character: default
   attackHitboxes:
   - {fileID: 1986714499}
+  - {fileID: 1860976560}
   animator: {fileID: 0}
   enemy: {fileID: 1565138146}
   canvas: {fileID: 503501985}
@@ -5265,6 +5322,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 882408434}
+  - {fileID: 195212394}
   m_Father: {fileID: 1565138153}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7256,13 +7314,15 @@ MonoBehaviour:
   left: 97
   right: 100
   jump: 119
-  dash: 115
+  dash: 306
   block: 101
   jab: 304
+  groundPound: 115
   isPlayer1: 0
   character: default
   attackHitboxes:
   - {fileID: 882408433}
+  - {fileID: 195212395}
   animator: {fileID: 0}
   enemy: {fileID: 1053227042}
   canvas: {fileID: 503501985}
@@ -8585,6 +8645,60 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19c97799abbe04235a9973c55a8a177c, type: 3}
   m_IsPrefabAsset: 0
+--- !u!1 &1860976558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860976559}
+  - component: {fileID: 1860976560}
+  m_Layer: 0
+  m_Name: GroundPound1
+  m_TagString: Melee
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860976559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860976558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.1, y: -4.439056, z: 0.29697675}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 250419601}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1860976560
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860976558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.67808, y: -0.616632}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.011, y: 0.91320324}
+  m_EdgeRadius: 0
 --- !u!1001 &1867387085
 Prefab:
   m_ObjectHideFlags: 0
