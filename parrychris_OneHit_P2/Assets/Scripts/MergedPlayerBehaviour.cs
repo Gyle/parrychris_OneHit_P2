@@ -151,12 +151,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
             animator.SetBool("Grounded", true);
 
             //move left
-            if (Input.GetKey(this.left) && !shieldUp)
+            if (Input.GetKey(this.left) && !shieldUp || (Input.GetKey(this.left) && shieldUp && IsWalkingBackwardsKey(this.left)) )
             {
                 moveVelocity = -playerSpeed;
             }
             //move right
-            if (Input.GetKey(this.right) && !shieldUp)
+            if (Input.GetKey(this.right) && !shieldUp || (Input.GetKey(this.left) && shieldUp && IsWalkingBackwardsKey(this.right)) )
             {
                 moveVelocity = playerSpeed;
             }
@@ -389,6 +389,22 @@ public class MergedPlayerBehaviour : MonoBehaviour
             GameObject ChildGameObject = this.gameObject.transform.GetChild(1).gameObject;
             ChildGameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
+
+    // This method returns if the key input represents walking backwards based on the direction 
+    // the player is facing.
+    private bool IsWalkingBackwardsKey(KeyCode input)
+    {
+        if (onRightSide && input == this.right)
+        {
+            return true;
+        }
+
+        if (!onRightSide && input == this.left)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void SetGameOver(bool game)
