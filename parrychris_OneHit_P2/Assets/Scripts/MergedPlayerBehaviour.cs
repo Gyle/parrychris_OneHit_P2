@@ -211,6 +211,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             slidingoffhead = false;
             grounded = true;
             groundpounding = false;
+            jumpCount = 0;
         }
         else if (coll.transform.tag.Contains("Head"))
         {
@@ -243,7 +244,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     }
 
     //Check to see if player grounded, update booleans if so
-    private void checkGrounded()
+    private void checkGrounded() //TODO remove this and use ground collider instead
     {
         if (gameObject.transform.position.y < 1.35)
         {

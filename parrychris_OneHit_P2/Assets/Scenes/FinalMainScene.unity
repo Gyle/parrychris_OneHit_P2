@@ -20294,9 +20294,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 651933693}
-  - component: {fileID: 651933696}
   - component: {fileID: 651933695}
   - component: {fileID: 651933694}
+  - component: {fileID: 651933696}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -33053,7 +33053,7 @@ MonoBehaviour:
   jab: 303
   groundPound: 274
   isPlayer1: 1
-  character: default
+  character: fast
   attackHitboxes:
   - {fileID: 1986714499}
   - {fileID: 1860976560}
