@@ -93,6 +93,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         //  Jump
         if (Input.GetKeyDown(this.jump) && !shieldUp)
         {   //sets animator variables to true
+            Debug.Log("jump animation start");
             animator.SetBool("isJumping", true);
             animator.SetBool("Grounded", false);
             Jump();
@@ -333,11 +334,14 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private void Jump()
     {
         //check player is grounded before jumping
-        Debug.Log("Double: " + doubleJump + ", jumpCount: " + jumpCount);
-        if (grounded || (doubleJump && jumpCount < 2))
+        //Debug.Log("Double: " + doubleJump + ", jumpCount: " + jumpCount);
+        //if (grounded || (doubleJump && jumpCount < 2))
+        if(grounded)
         {
+            Debug.Log("jump animation stop");
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-            animator.SetBool("isJumping", false);
+            animator.SetBool("isGrounded", true);   
+            animator.SetBool("isJumping", false);   
             grounded = false;
             jumpCount++;
         }
