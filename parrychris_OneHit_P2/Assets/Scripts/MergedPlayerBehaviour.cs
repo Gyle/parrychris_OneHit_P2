@@ -337,7 +337,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         if (grounded || (doubleJump && jumpCount < 2))
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-            animator.SetBool("isJumping", false);
+            animator.SetBool("isJumping", true);
             grounded = false;
             jumpCount++;
         }
