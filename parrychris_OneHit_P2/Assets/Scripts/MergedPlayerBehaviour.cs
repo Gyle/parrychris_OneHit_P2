@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MergedPlayerBehaviour : MonoBehaviour
 {
 
-    public KeyCode left, right, jump, dash, block, jab, groundPound;
+    public Controls controls;
     public bool isPlayer1;
 
     //Dash
@@ -91,7 +91,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
 
         //  Jump
-        if (Input.GetKeyDown(this.jump) && !shieldUp)
+        if (Input.GetKeyDown(controls.jump) && !shieldUp)
         {   //sets animator variables to true
             animator.SetBool("isJumping", true);
             animator.SetBool("Grounded", false);
@@ -99,26 +99,26 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         //Melee
         //There are 3 melee cases - KeyUp, KeyDown, Key
-        else if (Input.GetKeyUp(this.jab) && shieldUp == false)
+        else if (Input.GetKeyUp(controls.jab) && shieldUp == false)
         {    //KeyUp is when releasing melee, turning off animation
             animator.SetBool("Jab_attack", false);
         }
-        else if (Input.GetKeyDown(this.jab) && shieldUp == false)
+        else if (Input.GetKeyDown(controls.jab) && shieldUp == false)
         {    //KeyDown is beginning of melee animation and launchAttack
             animator.SetBool("Jab_attack", true);
             LaunchAttack(attackHitboxes[0]);
         }
-        else if (Input.GetKey(this.jab) && shieldUp == false)
+        else if (Input.GetKey(controls.jab) && shieldUp == false)
         {    //Key is when holding attack
              //May remove this option in future
             LaunchAttack(attackHitboxes[0]);
         }
         //Block 
         /************Changed************/
-        else if (Input.GetKey(this.block))
+        else if (Input.GetKey(controls.block))
         {
             Block();
-        } else if (Input.GetKeyUp(this.block)) {
+        } else if (Input.GetKeyUp(controls.block)) {
         	if(shieldUp) {
         		nextBlock = Time.time + blockCD;
         	}
@@ -151,17 +151,17 @@ public class MergedPlayerBehaviour : MonoBehaviour
             animator.SetBool("Grounded", true);
 
             //move left
-            if (Input.GetKey(this.left) && !shieldUp || (Input.GetKey(this.left) && shieldUp && IsWalkingBackwardsKey(this.left)) )
+            if (Input.GetKey(controls.left) && !shieldUp || (Input.GetKey(controls.left) && shieldUp && IsWalkingBackwardsKey(controls.left)) )
             {
                 moveVelocity = -playerSpeed;
             }
             //move right
-            if (Input.GetKey(this.right) && !shieldUp || (Input.GetKey(this.left) && shieldUp && IsWalkingBackwardsKey(this.right)) )
+            if (Input.GetKey(controls.right) && !shieldUp || (Input.GetKey(controls.left) && shieldUp && IsWalkingBackwardsKey(controls.right)) )
             {
                 moveVelocity = playerSpeed;
             }
             //Dash
-            if (Input.GetKey(this.dash) && Time.time > nextDash && !dashing)
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
             {
                 //Set the time for next earliest dash
                 nextDash = Time.time + dashCooldown;
@@ -177,7 +177,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         else if(!grounded){
             // perform ground pound movement if in the air
-            if (Input.GetKey(this.groundPound) && !grounded)
+            if (Input.GetKey(controls.groundPound) && !grounded)
             {
                 groundpounding = true;
                 GroundPound();
@@ -185,12 +185,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
             //player is in the air and can move left/right at half speed.
             //move left
-            if (Input.GetKey(this.left) && !shieldUp)
+            if (Input.GetKey(controls.left) && !shieldUp)
             {
                 moveVelocity = -playerSpeed;
             }
             //move right
-            if (Input.GetKey(this.right) && !shieldUp)
+            if (Input.GetKey(controls.right) && !shieldUp)
             {
                 moveVelocity = playerSpeed;
             }
@@ -383,7 +383,8 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         else if (gameOver && Time.time > gameOverTime + gameOverWait)
         {
-            SceneManager.LoadScene("FinalMainScene", LoadSceneMode.Single);
+            //restart the current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (!won)
         {
@@ -396,12 +397,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // the player is facing.
     private bool IsWalkingBackwardsKey(KeyCode input)
     {
-        if (onRightSide && input == this.right)
+        if (onRightSide && input == controls.right)
         {
             return true;
         }
 
-        if (!onRightSide && input == this.left)
+        if (!onRightSide && input == controls.left)
         {
             return true;
         }
