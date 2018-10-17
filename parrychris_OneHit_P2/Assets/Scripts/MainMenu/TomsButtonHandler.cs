@@ -10,6 +10,7 @@ public class TomsButtonHandler : MonoBehaviour {
     private UnityEngine.EventSystems.EventSystem myEventSystem;//used to unselect buttons
 
     private bool checkingForNextKeyPress = false;
+    private GameObject buttonCheckingFor;
 
 	void Start(){
 		MainMenu = GameObject.Find("MenuPanel");
@@ -75,13 +76,13 @@ public class TomsButtonHandler : MonoBehaviour {
 		
 	}
 
-    public void checkForNextKeyPress(){
+    public void checkForNextKeyPress(GameObject button){
         this.checkingForNextKeyPress = true;
-
+        this.buttonCheckingFor = button;
     }
 
     private void modifyKey(KeyCode newKey){
-        TomsControlTextScript child = GetComponentInChildren<TomsControlTextScript>();
+        TomsControlTextScript child = this.buttonCheckingFor.GetComponentInChildren<TomsControlTextScript>();
         //change the key code using reflection
         child.controls.GetType().GetField(child.command).SetValue(child.controls,newKey);
         //refresh the text field.
