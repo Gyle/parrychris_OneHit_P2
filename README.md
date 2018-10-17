@@ -123,19 +123,19 @@ animations
   - different characters with their own moveset
   - different attributes eg big person thats strong but slow, agile ninja?
   
- ### Character Two Traits
- Dash distance - slightly shorter
- Dash cooldown - less
- 
- Jump height - less
- More jumps - 1
- 
- Longer jabs - more range
- Loger dash hitbox - more range
- 
- Longer shield block - longer
- shorter shield block cooldown - longer
+### Character Two Traits
+* Shorter dash
+* Shorter dash cooldown
 
- run speed - slower
+* Lower jump
+* 1 Jump
+
+* Longer jab range
+* Longer dash range
+
+* Longer shield block
+* Longer shield block cooldown
+
+* Slower run speed
 
 
