@@ -66,7 +66,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             Debug.Log(this.gameObject.name + " has selected " + character);
             this.dashLength = 0.15f;
             this.dashCooldown = 0.75f;
-            this.jumpSpeed = 25;
+            this.jumpSpeed = 35;
             //TODO attack range
             this.attackRange = 2;
             this.maxBlockDur = 1.5f;
@@ -114,12 +114,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
         else if (Input.GetKeyDown(controls.jab) && shieldUp == false)
         {    //KeyDown is beginning of melee animation and launchAttack
             animator.SetBool("Jab_attack", true);
-            LaunchAttack(attackHitboxes[0]);
-        }
-        else if (Input.GetKey(controls.jab) && shieldUp == false)
-        {    //Key is when holding attack
-             //May remove this option in future
-            LaunchAttack(attackHitboxes[0]);
+            if(attackRange == 2) {
+                LaunchAttack(attackHitboxes[2]);
+            } else {
+                LaunchAttack(attackHitboxes[0]);
+            }
         }
         //Block 
         /************Changed************/
@@ -306,7 +305,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
             }
             else
             {
-                LaunchAttack(attackHitboxes[0]);
+                if(attackRange == 2) {
+                    LaunchAttack(attackHitboxes[2]);
+                } else {
+                    LaunchAttack(attackHitboxes[0]);
+                }
             }
         }
         else //If not dashing, start dash
