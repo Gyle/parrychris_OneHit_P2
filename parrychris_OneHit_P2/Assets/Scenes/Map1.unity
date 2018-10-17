@@ -2155,63 +2155,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!1 &58859163
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1328536849873118, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 58859164}
-  - component: {fileID: 58859165}
-  m_Layer: 0
-  m_Name: Melee2
-  m_TagString: Melee
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &58859164
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4094403916361644, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 58859163}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.28, y: -3.046189, z: 0.29697675}
-  m_LocalScale: {x: 1.5631179, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 250419601}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &58859165
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 61753006990088392, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 58859163}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 6.67808, y: -0.616632}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.011, y: 0.91320324}
-  m_EdgeRadius: 0
 --- !u!1001 &59085863
 Prefab:
   m_ObjectHideFlags: 0
@@ -7547,7 +7490,7 @@ Transform:
   m_Children:
   - {fileID: 1986714498}
   - {fileID: 1860976559}
-  - {fileID: 58859164}
+  - {fileID: 869013400}
   m_Father: {fileID: 1053227046}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26934,6 +26877,63 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 868691060}
   m_Mesh: {fileID: 4300818, guid: e78f15a1678b8411191cb69b7960a58f, type: 3}
+--- !u!1 &869013398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1328536849873118, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869013400}
+  - component: {fileID: 869013399}
+  m_Layer: 0
+  m_Name: Melee2
+  m_TagString: Melee
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &869013399
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 61753006990088392, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869013398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.67808, y: -0.616632}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.011, y: 0.91320324}
+  m_EdgeRadius: 0
+--- !u!4 &869013400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4094403916361644, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869013398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.21, y: -3.0466747, z: 0.29697675}
+  m_LocalScale: {x: 1.5716642, y: 0.9999973, z: 0.9999973}
+  m_Children: []
+  m_Father: {fileID: 250419601}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878099937
 GameObject:
   m_ObjectHideFlags: 0
@@ -32772,7 +32772,7 @@ MonoBehaviour:
   attackHitboxes:
   - {fileID: 1986714499}
   - {fileID: 1860976560}
-  - {fileID: 58859165}
+  - {fileID: 869013399}
   animator: {fileID: 0}
   enemy: {fileID: 1565138146}
   canvas: {fileID: 503501985}
@@ -60214,11 +60214,11 @@ Prefab:
       objectReference: {fileID: 2020616968}
     - target: {fileID: 4094403916361644, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.9343524
+      value: 1.5716614
       objectReference: {fileID: 0}
     - target: {fileID: 4094403916361644, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.48
+      value: 13.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
