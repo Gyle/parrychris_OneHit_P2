@@ -42,6 +42,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private bool groundpounding = false;
     public Collider2D[] attackHitboxes;
     public Animator animator;
+    private int attackRange = 1;
 
     //Game
     public GameObject enemy;
@@ -61,9 +62,16 @@ public class MergedPlayerBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyScript = enemy.GetComponent<MergedPlayerBehaviour>();
 
-        if(character == "fast") {
+        if(character == "samurai") {
             Debug.Log(this.gameObject.name + " has selected " + character);
-            this.playerSpeed = 12;
+            this.dashLength = 0.15f;
+            this.dashCooldown = 0.75f;
+            this.jumpSpeed = 25;
+            //TODO attack range
+            this.attackRange = 2;
+            this.maxBlockDur = 1.5f;
+            this.blockCD = 1.2f;
+            this.playerSpeed = 7;
             doubleJump = true;
         }
     }
@@ -119,13 +127,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             Block();
         } else if (Input.GetKeyUp(controls.block)) {
-        	if(shieldUp) {
-        		nextBlock = Time.time + blockCD;
-        	}
-        	shieldUp = false;
-        	animator.SetBool("Block", shieldUp);
-        	GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
-        	ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
+            if(shieldUp) {
+                nextBlock = Time.time + blockCD;
+            }
+            shieldUp = false;
+            animator.SetBool("Block", shieldUp);
+            GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
+            ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
         }
         /************Changed************/
         //Restart button (for development)
@@ -261,23 +269,23 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
     private void Block()
     {
-    	if(shieldUp) {
-    		if(Time.time > currentBlockDur) {
-    			shieldUp = false;
-    			nextBlock = Time.time + blockCD;
-    		}
+        if(shieldUp) {
+            if(Time.time > currentBlockDur) {
+                shieldUp = false;
+                nextBlock = Time.time + blockCD;
+            }
 
-    	} else {
-    		if(Time.time > nextBlock) {
-    			shieldUp = true;
-        		currentBlockDur = Time.time + maxBlockDur;
-    		} else {
-    			return;
-    		}
-        	
-    	}
-    	//set animator variable Block to true
-    	animator.SetBool("Block", shieldUp);
+        } else {
+            if(Time.time > nextBlock) {
+                shieldUp = true;
+                currentBlockDur = Time.time + maxBlockDur;
+            } else {
+                return;
+            }
+            
+        }
+        //set animator variable Block to true
+        animator.SetBool("Block", shieldUp);
         //Activate blue shield sprite
         GameObject ChildGameObject = this.gameObject.transform.GetChild(0).gameObject;
         ChildGameObject.GetComponent<SpriteRenderer>().enabled = shieldUp;
