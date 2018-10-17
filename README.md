@@ -79,8 +79,6 @@ UI
   - new round. best of 3
   - ~~show end game~~
 
-
-
 - map interactions
   - ~~walk on roof~~
   - worm holes
@@ -125,8 +123,19 @@ animations
   - different characters with their own moveset
   - different attributes eg big person thats strong but slow, agile ninja?
   
+ ### Character Two Traits
+ Dash distance - slightly shorter
+ Dash cooldown - less
  
-  
+ Jump height - less
+ More jumps - 1
+ 
+ Longer jabs - more range
+ Loger dash hitbox - more range
+ 
+ Longer shield block - longer
+ shorter shield block cooldown - longer
 
+ run speed - slower
 
 
