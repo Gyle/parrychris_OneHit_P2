@@ -7960,7 +7960,7 @@ Prefab:
     - target: {fileID: 23624190545722122, guid: 93ced5382c78846d99da15d859376527,
         type: 2}
       propertyPath: m_SelectedEditorRenderState
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4794360959765996, guid: 93ced5382c78846d99da15d859376527, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -9774,19 +9774,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053227042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4081f1b24ae449289012ac26f9caa38, type: 3}
+  m_Script: {fileID: 11500000, guid: 6336ba56148234bf4acf244d4a63bc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 5000
-  dashCooldown: 3
-  dashLength: 0.5
-  jump: 30
-  playerSpeed: 9
-  enemy: {fileID: 1565138146}
-  canvas: {fileID: 721930783}
-  attackHitboxes:
-  - {fileID: 1986714499}
+  controls: {fileID: 11400000, guid: 8f9c4accb416b3d408f7b0e51d615b15, type: 2}
+  isPlayer1: 0
+  character: fast
+  attackHitboxes: []
   animator: {fileID: 0}
+  enemy: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!61 &1053227048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12600,7 +12597,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 743c568a81805427f93f37d1925b0433, type: 2}
+  - {fileID: 2100000, guid: 518f9af20c6a648a6bf2bcf21e308401, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15097,6 +15094,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -103.372
       objectReference: {fileID: 0}
+    - target: {fileID: 2340482, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03718b9386da24df68093e7fc9d2b173, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
   m_IsPrefabAsset: 0
@@ -15453,19 +15454,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565138146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce179fd0720634e52980a612d16a8891, type: 3}
+  m_Script: {fileID: 11500000, guid: 6336ba56148234bf4acf244d4a63bc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 5000
-  dashCooldown: 3
-  dashLength: 0.5
-  jump: 30
-  playerSpeed: 9
-  enemy: {fileID: 1053227042}
-  canvas: {fileID: 721930783}
-  attackHitboxes:
-  - {fileID: 882408433}
+  controls: {fileID: 11400000, guid: 5e6acf870c6396742bbb009f3bc8015e, type: 2}
+  isPlayer1: 0
+  character: fast
+  attackHitboxes: []
   animator: {fileID: 0}
+  enemy: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!212 &1565138152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16385,6 +16383,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -35.120003
       objectReference: {fileID: 0}
+    - target: {fileID: 2340482, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03718b9386da24df68093e7fc9d2b173, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
   m_IsPrefabAsset: 0
