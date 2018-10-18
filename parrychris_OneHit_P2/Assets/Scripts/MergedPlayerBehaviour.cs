@@ -73,6 +73,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             this.blockCD = 1.2f;
             this.playerSpeed = 7;
             doubleJump = true;
+            //animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Assets/Animations/Samurai/ata1");
         }
     }
 
