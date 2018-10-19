@@ -6,7 +6,7 @@ public class TomsControlTextScript : MonoBehaviour
     public Controls controls;
 	public string command;
 
-    public void Start()
+    void Start()
     {
 		Text text = GetComponent<Text>();
 
