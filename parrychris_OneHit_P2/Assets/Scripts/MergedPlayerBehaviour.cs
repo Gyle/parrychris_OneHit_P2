@@ -10,7 +10,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     public bool isPlayer1;
 
     //Dash
-    private int dashSpeed = 5000;
+    private int dashSpeed = 4000;
     private float dashCooldown = 1;
     private float dashLength = 0.2f;
     private bool dashing = false;
@@ -202,6 +202,17 @@ public class MergedPlayerBehaviour : MonoBehaviour
             {
                 moveVelocity = playerSpeed;
             }
+            //Dash
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
+            {
+                //Set the time for next earliest dash
+                nextDash = Time.time + dashCooldown;
+                //Set dash attack variable in animator to true
+                animator.SetBool("Dash_Attack", true);
+
+                Dash();
+                return;
+            }
             rb2d.velocity = new Vector2(moveVelocity,
                 rb2d.velocity.y);
         }
@@ -334,10 +345,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         else if (dashDir)
         {
+            rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector2(-dashSpeed, 0));
         }
         else
         {
+            rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector2(dashSpeed, 0));
         }
 
