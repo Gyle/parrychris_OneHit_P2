@@ -59989,7 +59989,6 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 13.72
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 61415771658673520, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
         type: 2}
       propertyPath: m_UsedByComposite
@@ -60005,14 +60004,6 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: de51c61dcdd1b4f5da8174d96ab33124, type: 2}
-=======
-    - target: {fileID: 114404383008236444, guid: a1cddc7654f9a4ae8b838e6e027ed97e,
-        type: 2}
-      propertyPath: controls
-      value: 
-      objectReference: {fileID: 11400000, guid: 0476befcd47c143fc8497986b679455a,
-        type: 2}
->>>>>>> 764e54f3d8339b1825bf7f2b912911b9b48f0230
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
   m_IsPrefabAsset: 0
