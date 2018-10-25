@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour {
         Transform t2 = playerTwo.transform;
 
         // How many units should we keep from the players
-        float zoomFactor = 0.7f;
+        float zoomFactor = 1f;
         float followTimeDelta = 0.2f;
 
         // Midpoint we're after
