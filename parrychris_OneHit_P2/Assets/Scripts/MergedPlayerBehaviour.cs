@@ -390,6 +390,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         else if (dashDir)
         {
+            //ensures that the only force acting 
             rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector2(-dashSpeed, 0));
         }
@@ -445,7 +446,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             //Turn on win message - player 1 win message must be first child of canvas.
             int childIndex = this.isPlayer1 ? 0 : 1;
             GameObject child = canvas.transform.GetChild(childIndex).gameObject;
-            child.gameObject.GetComponent<Text>().enabled = true;
+            child.gameObject.GetComponent<Image>().enabled = true;
 
             gameOverTime = Time.time;
             gameOver = true;
