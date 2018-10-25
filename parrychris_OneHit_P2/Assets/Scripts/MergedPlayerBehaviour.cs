@@ -10,9 +10,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
     public bool isPlayer1;
 
     //Dash
-    private int dashSpeed = 4000;
+    private const int dashSpeed = 4000;
     private float dashCooldown = 1;
-    private float dashLength = 0.2f;
+    private const float dashLength = 0.2f;
     private bool dashing = false;
     private bool dashDir = false;
     private float nextDash = 1;
@@ -28,7 +28,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private bool shieldUp = false;
     private float blockCD = 1;
     private float nextBlock = 0;
-    private float currentBlockDur = 0;
+    private const int MAX_BLOCK_VALUE = 50;
+    private const int INITIAL_BLOCK_VALUE_DECREASE = 20;
+    private int currentBlockDur = MAX_BLOCK_VALUE;
     private float maxBlockDur = 1;
 
     //Movement
@@ -77,9 +79,33 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
     }
 
+    private void handleBlockMeter(){
+        if (currentBlockDur <= 0)
+        {
+            nextBlock = Time.time + blockCD;
+            currentBlockDur = MAX_BLOCK_VALUE;
+            return;
+        }
+
+        if (blockIsOnCooldown() || currentBlockDur >= MAX_BLOCK_VALUE){
+            return;
+        }
+
+        if(shieldUp){
+            currentBlockDur -= 1;
+        }
+        else{
+            currentBlockDur += 1;
+        }
+
+       
+    }
+
     // Called every frame
     void Update()
     {
+        handleBlockMeter();
+
         if (gameOver)
         {
             return;
@@ -127,8 +153,10 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             Block();
         } else if (Input.GetKeyUp(controls.block)) {
-            if(shieldUp) {
-                nextBlock = Time.time + blockCD;
+            if (shieldUp)
+            {
+                //nextBlock = Time.time + blockCD;
+
             }
             shieldUp = false;
             animator.SetBool("Block", shieldUp);
@@ -147,6 +175,10 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Called every frame 
     void FixedUpdate()
     {
+        if(!isPlayer1){
+            Debug.Log("block value for P | " + currentBlockDur);
+        }
+
         if (gameOver)
         {
             GameOver();
@@ -278,19 +310,32 @@ public class MergedPlayerBehaviour : MonoBehaviour
         //}
     }
 
+    private bool blockIsOnCooldown(){
+        if(Time.time > nextBlock){
+            return false;
+        }
+        return true;
+    }
+
     private void Block()
     {
         if(shieldUp) {
-            if(Time.time > currentBlockDur) {
+            if(currentBlockDur <= 0) {
+                
+   
+                //currentBlockDur = 100;
                 shieldUp = false;
                 nextBlock = Time.time + blockCD;
             }
 
         } else {
-            if(Time.time > nextBlock) {
+            if(!blockIsOnCooldown()) {
                 shieldUp = true;
-                currentBlockDur = Time.time + maxBlockDur;
+
+                // initial block uses heaps of meter so you cannot spam block
+                currentBlockDur = currentBlockDur - INITIAL_BLOCK_VALUE_DECREASE;
             } else {
+                
                 return;
             }
             
