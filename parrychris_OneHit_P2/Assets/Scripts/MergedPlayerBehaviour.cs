@@ -10,9 +10,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
     public bool isPlayer1;
 
     //Dash
-    private const int dashSpeed = 4000;
+    private int dashSpeed = 4000;
     private float dashCooldown = 1;
-    private const float dashLength = 0.2f;
+    private float dashLength = 0.2f;
     private bool dashing = false;
     private bool dashDir = false;
     private float nextDash = 1;
