@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.IO;
 
 public class TomsButtonHandler : MonoBehaviour {
 
@@ -16,9 +18,14 @@ public class TomsButtonHandler : MonoBehaviour {
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
         myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
-		if(MainMenu ==null || HowToPlay==null){
-            Debug.LogError("Error finding game objects of name MenuPanel and HowToPlayPanel");
-		}
+        if (MainMenu == null)
+        {
+            Debug.LogError("Error finding game objects of name MenuPanel");
+        }
+        if (HowToPlay == null)
+        {
+            Debug.LogError("Error finding game objects of name HowToPlayPanel");
+        }
 	}
 
 	public void playMap1(){
@@ -27,6 +34,43 @@ public class TomsButtonHandler : MonoBehaviour {
 	public void playMap2(){
 		SceneManager.LoadScene("Map2");
 	}
+
+    public void changeBackground(int arg){
+        int backgroundImage = arg;
+        string filePath;
+        Image imageScript = MainMenu.GetComponent<Image>(); // component that renders the background
+
+        Sprite newBackground;
+
+
+        switch(backgroundImage){
+            case 0:
+                Debug.Log("display main background");
+                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/MainMenuBackground");
+                filePath = "Backgrounds/MainMenuBackground";
+                break;
+            case 1:
+                Debug.Log("display map 1 background");
+                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/map1");
+                filePath = "Backgrounds/map1";
+                break;  
+            case 2:
+                Debug.Log("display map 2 background");
+                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/map2");
+                filePath = "Backgrounds/map2";
+                break;
+            default:
+                Debug.Log("display main background");
+                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/MainMenuBackground");
+                filePath = "Backgrounds/MainMenuBackground";
+                break;
+
+        }
+
+        newBackground = Resources.Load<Sprite>(filePath);
+        Debug.Log(newBackground);
+        imageScript.sprite = newBackground;
+    }
 
     void Update()
     {
