@@ -16,6 +16,9 @@ public class TomsButtonHandler : MonoBehaviour {
     private GameObject playerOneSelect;
     private GameObject playerTwoSelect;
 
+    // Which character panel is displayed on screen;
+    private bool playerOneSelectingCharacter;
+
     private UnityEngine.EventSystems.EventSystem myEventSystem;//used to unselect buttons
 
     private bool checkingForNextKeyPress = false;
@@ -26,6 +29,9 @@ public class TomsButtonHandler : MonoBehaviour {
         spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
+
+        // On start, player one is always the first to select character
+        playerOneSelectingCharacter = true;
 
         // Try to get the character select panels
         try
@@ -70,7 +76,6 @@ public class TomsButtonHandler : MonoBehaviour {
      * This means it may be extended to showcase more maps by adding more cases.
      */
     public void ChangeBackground(int backgroundImage){
-
         // change the background sprite based on the corresponding value.
         switch(backgroundImage){
             case 0:
@@ -84,6 +89,41 @@ public class TomsButtonHandler : MonoBehaviour {
                 break;
             default:
                 spriteManager.ChangeMapBackgroundImage(MainMenu, 0);
+                break;
+
+        }
+    }
+
+    /*
+     * Upon the mouse hovering over a button, when applicable, this method 
+     * will change the background to a sprite of the map to display to the 
+     * player what the map looks like. 
+     * 
+     *  Case 0 = Main menu background
+     *  Case 1 = Map one 
+     *  Case 2 = Map two
+     * 
+     * This means it may be extended to showcase more maps by adding more cases.
+     */
+    public void ChangePortraitHighlight(bool highlight, int character)
+    {
+        // Determine which character panel it should highlight
+        GameObject characterPanel = (this.playerOneSelectingCharacter) ? this.playerOneSelect : this.playerTwoSelect;
+
+        // change the background sprite based on the corresponding value.
+        switch (character)
+        {
+            case 1:
+                spriteManager.HighlightCharacter(characterPanel,highlight,1);
+                break;
+            case 2:
+                spriteManager.HighlightCharacter(characterPanel,highlight,1);
+                break;
+            case 3:
+                spriteManager.HighlightCharacter(characterPanel,highlight,2);
+                break;
+            default:
+                spriteManager.HighlightCharacter(characterPanel,highlight,0);
                 break;
 
         }
@@ -111,11 +151,11 @@ public class TomsButtonHandler : MonoBehaviour {
     }
 
     public void PlayerOnePanelToPlayerTwo(){
-        
+        playerOneSelectingCharacter = false;
     }
 
     public void PlayerTwoPanelToPlayerOne(){
-
+        playerOneSelectingCharacter = true
     }
 
     void Update()
