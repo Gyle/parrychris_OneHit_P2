@@ -105,29 +105,29 @@ public class TomsButtonHandler : MonoBehaviour {
      * 
      * This means it may be extended to showcase more maps by adding more cases.
      */
-    public void ChangePortraitHighlight(bool highlight, int character)
-    {
-        // Determine which character panel it should highlight
-        GameObject characterPanel = (this.playerOneSelectingCharacter) ? this.playerOneSelect : this.playerTwoSelect;
+//     public void ChangePortraitHighlight(bool highlight, int character)
+//     {
+//         // Determine which character panel it should highlight
+//         GameObject characterPanel = (this.playerOneSelectingCharacter) ? this.playerOneSelect : this.playerTwoSelect;
 
-        // change the background sprite based on the corresponding value.
-        switch (character)
-        {
-            case 1:
-                spriteManager.HighlightCharacter(characterPanel,highlight,1);
-                break;
-            case 2:
-                spriteManager.HighlightCharacter(characterPanel,highlight,1);
-                break;
-            case 3:
-                spriteManager.HighlightCharacter(characterPanel,highlight,2);
-                break;
-            default:
-                spriteManager.HighlightCharacter(characterPanel,highlight,0);
-                break;
+//         // change the background sprite based on the corresponding value.
+//         switch (character)
+//         {
+//             case 1:
+//                 spriteManager.HighlightCharacter(characterPanel,highlight,1);
+//                 break;
+//             case 2:
+//                 spriteManager.HighlightCharacter(characterPanel,highlight,1);
+//                 break;
+//             case 3:
+//                 spriteManager.HighlightCharacter(characterPanel,highlight,2);
+//                 break;
+//             default:
+//                 spriteManager.HighlightCharacter(characterPanel,highlight,0);
+//                 break;
 
-        }
-    }
+//         }
+//     }
 
     /*
      * When the player selects their character via button click, then the 
