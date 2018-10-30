@@ -48,7 +48,7 @@ public class TomsButtonHandler : MonoBehaviour {
      * 
      * This means it may be extended to showcase more maps by adding more cases.
      */
-    public void changeBackground(int backgroundImage){
+    public void ChangeBackground(int backgroundImage){
 
         // change the background sprite based on the corresponding value.
         switch(backgroundImage){
@@ -67,6 +67,28 @@ public class TomsButtonHandler : MonoBehaviour {
 
         }
     }
+
+    /*
+     * When the player selects their character via button click, then the 
+     * button will write to the data store static class which character 
+     * the corresponding player selected.
+     */
+    public void WriteCharacterToDataStore(int player, int character){
+
+        // Update the Data Store based on which player we are dealing with.
+        switch(player){
+            case 1:
+                DataStore.PlayerOneCharacter = character;
+                break;
+            case 2:
+                DataStore.PlayerTwoCharacter = character;
+                break;
+            default:
+                Debug.Log("Error: Player must either be 1 or 2 (player was outside of range)");
+                break;
+        }
+    }
+
 
     void Update()
     {
