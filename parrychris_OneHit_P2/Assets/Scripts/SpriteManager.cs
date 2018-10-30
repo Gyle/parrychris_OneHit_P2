@@ -92,6 +92,27 @@ public class SpriteManager : MonoBehaviour {
      *  - character is the character type
      */
     public void ChangeCharacterSelectImage(GameObject characterPanel, bool isLeftSide, int character){
-        
+        // Get image component from the character select panel
+        Image imageScript = characterPanel.GetComponent<Image>();
+
+        // Get the corresponding character sprite
+        Sprite characterSprite = characterSelectSprites[character];
+
+        // Check if we need to flip the sprite.
+        //if(!isLeftSide){
+        //    FlipSprite(characterSprite);
+        //}
+
+        // change the sprite to the coressponding character
+        imageScript.sprite = characterSprite;
+    }
+
+    /*
+     * This function will flip a given sprite horizontally so that the renderer 
+     * would not need to flip the sprite itself.
+     */
+    private void FlipSprite(Sprite sprite){
+        // Unsure of how to flip sprite without manually flipping at render level code.
+        //sprite.transform.Rotate(new Vector3(0, 180, 0));
     }
 }
