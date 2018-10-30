@@ -8,7 +8,7 @@ using UnityEngine.UI;
  * folder into the game. It also helps changing the sprites associated 
  * with GameObjects.
  */
-public class SpriteManager : MonoBehaviour {
+public class SpriteManager {
     private Sprite[] mapSprites;
     private Sprite[] characterSelectSprites;
 
@@ -19,7 +19,7 @@ public class SpriteManager : MonoBehaviour {
     private int characterCount = 3;
 
 	// Use this for initialization
-	private void Start () {
+    public SpriteManager () {
         // Initialise the arrays 
         this.mapSprites = new Sprite[mapCount+1];   // +1 because of default background at title screen.
         this.characterSelectSprites = new Sprite[characterCount];
@@ -38,7 +38,7 @@ public class SpriteManager : MonoBehaviour {
         mapSprites[0] = Resources.Load<Sprite>("Backgrounds/MainMenuBackground");
 
         // load all map background images
-        for (int i = 1; i < mapCount; i+=1){
+        for (int i = 1; i <= mapCount; i+=1){
             // determine file path of map image
             string filePath = "Backgrounds/map" + i;
 

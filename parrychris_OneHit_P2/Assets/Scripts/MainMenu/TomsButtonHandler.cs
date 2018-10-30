@@ -13,8 +13,10 @@ public class TomsButtonHandler : MonoBehaviour {
 
     private bool checkingForNextKeyPress = false;
     private GameObject buttonCheckingFor;
+    private SpriteManager spriteManager;
 
 	void Start(){
+        spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
         myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
@@ -35,41 +37,35 @@ public class TomsButtonHandler : MonoBehaviour {
 		SceneManager.LoadScene("Map2");
 	}
 
-    public void changeBackground(int arg){
-        int backgroundImage = arg;
-        string filePath;
-        Image imageScript = MainMenu.GetComponent<Image>(); // component that renders the background
+    /*
+     * Upon the mouse hovering over a button, when applicable, this method 
+     * will change the background to a sprite of the map to display to the 
+     * player what the map looks like. 
+     * 
+     *  Case 0 = Main menu background
+     *  Case 1 = Map one 
+     *  Case 2 = Map two
+     * 
+     * This means it may be extended to showcase more maps by adding more cases.
+     */
+    public void changeBackground(int backgroundImage){
 
-        Sprite newBackground;
-
-
+        // change the background sprite based on the corresponding value.
         switch(backgroundImage){
             case 0:
-                Debug.Log("display main background");
-                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/MainMenuBackground");
-                filePath = "Backgrounds/MainMenuBackground";
+                spriteManager.ChangeMapBackgroundImage(MainMenu, 0);
                 break;
             case 1:
-                Debug.Log("display map 1 background");
-                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/map1");
-                filePath = "Backgrounds/map1";
+                spriteManager.ChangeMapBackgroundImage(MainMenu, 1);
                 break;  
             case 2:
-                Debug.Log("display map 2 background");
-                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/map2");
-                filePath = "Backgrounds/map2";
+                spriteManager.ChangeMapBackgroundImage(MainMenu, 2);
                 break;
             default:
-                Debug.Log("display main background");
-                //imageScript.sprite = Resources.Load<Sprite>("Assets/Texture/MainMenuBackground");
-                filePath = "Backgrounds/MainMenuBackground";
+                spriteManager.ChangeMapBackgroundImage(MainMenu, 0);
                 break;
 
         }
-
-        newBackground = Resources.Load<Sprite>(filePath);
-        Debug.Log(newBackground);
-        imageScript.sprite = newBackground;
     }
 
     void Update()
