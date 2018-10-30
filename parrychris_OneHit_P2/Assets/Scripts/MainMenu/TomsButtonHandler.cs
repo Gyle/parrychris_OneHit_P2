@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class TomsButtonHandler : MonoBehaviour {
 
+    // Main menu panels
 	private GameObject MainMenu;
 	private GameObject HowToPlay;
+
+    // Character select pannels
+    private GameObject playerOneSelect;
+    private GameObject playerTwoSelect;
+
     private UnityEngine.EventSystems.EventSystem myEventSystem;//used to unselect buttons
 
     private bool checkingForNextKeyPress = false;
@@ -19,6 +26,20 @@ public class TomsButtonHandler : MonoBehaviour {
         spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
+
+        // Try to get the character select panels
+        try
+        {
+            playerOneSelect = GameObject.Find("PlayerOneCharacterSelectPanel");
+            playerTwoSelect = GameObject.Find("PlayerTwoCharacterSelectPanel");
+        }
+        // Catch why it failed instead of crashing the game
+        catch(Exception ex)
+        {
+            Debug.Log(ex);
+        }
+       
+
         myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
         if (MainMenu == null)
         {
@@ -89,6 +110,13 @@ public class TomsButtonHandler : MonoBehaviour {
         }
     }
 
+    public void PlayerOnePanelToPlayerTwo(){
+        
+    }
+
+    public void PlayerTwoPanelToPlayerOne(){
+
+    }
 
     void Update()
     {
