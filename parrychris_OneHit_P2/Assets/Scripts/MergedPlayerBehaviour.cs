@@ -124,6 +124,16 @@ public class MergedPlayerBehaviour : MonoBehaviour
             LaunchAttack(attackHitboxes[1]);
         }
 
+        // walking animation
+        if ( ( Input.GetKeyDown(controls.left) || Input.GetKeyDown(controls.right) ) && !shieldUp && grounded)
+        {
+            animator.SetBool("Walking", true);    
+        }
+        if ((Input.GetKeyUp(controls.left) || Input.GetKeyUp(controls.right)) && !shieldUp && grounded)
+        {
+            animator.SetBool("Walking", false);
+        }
+
 
         //  Jump
         if (Input.GetKeyDown(controls.jump) && !shieldUp)
