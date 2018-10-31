@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class SpriteManager {
     private Sprite[] mapSprites;
     private Sprite[] characterSelectSprites;
+    private Sprite[] characterPosterSprites;
 
     // currently two maps
     private int mapCount = 2;
@@ -23,10 +24,12 @@ public class SpriteManager {
         // Initialise the arrays 
         this.mapSprites = new Sprite[mapCount+1];   // +1 because of default background at title screen.
         this.characterSelectSprites = new Sprite[characterCount*2]; // *2 because dark and light portraits
+        this.characterPosterSprites = new Sprite[characterCount*2]; // *2 because left and right sides
 
         // Populate the arrays
         this.LoadMapSprites();
         this.LoadCharacterPortraitSprites();
+        this.LoadCharacterPosterSprites();
 	}
 
     /*
@@ -43,12 +46,12 @@ public class SpriteManager {
             string filePath = "Backgrounds/map" + i;
 
             // Set map sprites to coresponding indices.
-            mapSprites[i] = Resources.Load<Sprite>(filePath);
+            this.mapSprites[i] = Resources.Load<Sprite>(filePath);
         }
     }
 
     /*
-     * In order to load character images for character select, the name of the 
+     * In order to load character portrait images for character select, the name of the 
      * file must follow a simple naming convention. 
      * EG: Character one = character1_dark.png and character1_light.png
      */
@@ -66,9 +69,35 @@ public class SpriteManager {
             string filePathLight = "SelectionBox/character" + fileID + "_light";
 
             // Set dark and light portraits to their corresponding indices.
-            characterSelectSprites[index] = Resources.Load<Sprite>(filePathDark);
-            characterSelectSprites[index+1] = Resources.Load<Sprite>(filePathLight);
+            this.characterSelectSprites[index] = Resources.Load<Sprite>(filePathDark);
+            this.characterSelectSprites[index+1] = Resources.Load<Sprite>(filePathLight);
         }
+    }
+
+    /*
+    * In order to load character poster images for character select, the name of the 
+    * file must follow a simple naming convention. 
+    * EG: Character one = character1_left.png and character1_right.png
+    */
+    private void LoadCharacterPosterSprites()
+    {
+
+        // load all character portrait images
+        for (int i = 0; i < characterCount; i += 1)
+        {
+            // determine starting index and file ID
+            int index = i * 2;
+            int fileID = i + 1;
+
+            // determine file path of the portraits
+            string filePathDark = "SelectionPoster/character" + fileID + "_left";
+            string filePathLight = "SelectionPoster/character" + fileID + "_right";
+
+            // Set dark and light portraits to their corresponding indices.
+            this.characterPosterSprites[index] = Resources.Load<Sprite>(filePathDark);
+            this.characterPosterSprites[index + 1] = Resources.Load<Sprite>(filePathLight);
+        }
+
     }
 
     /*
@@ -93,6 +122,48 @@ public class SpriteManager {
         }
         else{
             imageScript.sprite = characterSelectSprites[index];
+        }
+    }
+
+    /*
+     * Update the sprite image of the character poster based on if it needs 
+     * to be highlighted or unhighlighted and apply this to the corresponding 
+     * character portrait
+     * 
+     *  - characterPoster is the box area for displaying the character
+     *  - isLeftSide is if we are updating left poster
+     *  - character is the ID. eg 1 = character 1
+     */
+    public void UpdateCharacterPoster(GameObject characterPoster, bool isLeftSide, int character)
+    {
+        // Get image component from the portrait
+        Image imageScript = characterPoster.GetComponent<Image>();
+
+        // If we are making poster empty
+        Color posterColor = new Color(255, 255, 255);
+        if (character == 0)
+        {
+            posterColor.a = 0;
+        }
+        else
+        {
+            posterColor.a = 255;
+        }
+
+        // apply color to hide or display poster image
+        imageScript.color = posterColor;
+
+        // Determine the starting index of the character
+        int index = (character != 0)? (character - 1) * 2 : 0;
+
+        // highlight or unhighlight the portrait. right facing = i, left facing = i+1
+        if (!isLeftSide)
+        {
+            imageScript.sprite = characterPosterSprites[index + 1];
+        }
+        else
+        {
+            imageScript.sprite = characterPosterSprites[index];
         }
     }
 

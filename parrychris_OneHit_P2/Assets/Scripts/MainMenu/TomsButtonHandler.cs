@@ -12,9 +12,13 @@ public class TomsButtonHandler : MonoBehaviour {
 	private GameObject MainMenu;
 	private GameObject HowToPlay;
 
-    // Character select pannels
+    // Character select panels
     private GameObject playerOneSelect;
     private GameObject playerTwoSelect;
+
+    // Character select posters
+    private GameObject playerOnePoster;
+    private GameObject playerTwoPoster;
 
     // Which character panel is displayed on screen;
     private bool playerOneSelectingCharacter;
@@ -31,6 +35,8 @@ public class TomsButtonHandler : MonoBehaviour {
 		HowToPlay = GameObject.Find("HowToPlayPanel");
         playerOneSelect = GameObject.Find("PlayerOneCharacterSelectPanel");
         playerTwoSelect = GameObject.Find("PlayerTwoCharacterSelectPanel");
+        playerOnePoster = GameObject.Find("PlayerOnePoster");
+        playerTwoPoster = GameObject.Find("PlayerTwoPoster");
 
         // On start, player one is always the first to select character
         playerOneSelectingCharacter = true;   
@@ -52,6 +58,14 @@ public class TomsButtonHandler : MonoBehaviour {
         {
             Debug.Log("Error finding game objects of name PlayerTwoCharacterSelectPanel");
         }
+        if (playerOnePoster == null)
+        {
+            Debug.Log("Error finding game objects of name playerOnePoster");
+        }
+        if (playerTwoPoster == null)
+        {
+            Debug.Log("Error finding game objects of name playerTwoPoster");
+        }
 
         // hide player 2 character select panel on load
         playerTwoSelect.SetActive(false);
@@ -63,6 +77,53 @@ public class TomsButtonHandler : MonoBehaviour {
 	public void playMap2(){
 		SceneManager.LoadScene("Map2");
 	}
+
+    public void UpdatePlayerOnePoster(int character){
+        SetPlayerPosterImage(true, character);
+    }
+
+    public void UpdatePlayerTwoPoster(int character)
+    {
+        SetPlayerPosterImage(false, character);
+    }
+
+    /*
+     * Upon the mouse hovering over a button, when applicable, this method 
+     * will change the poster image to a sprite of the corresponding player 
+     * to display which character they are selecting
+     * 
+     *  Case 1 = character1
+     *  Case 2 = character2 
+     *  Case 3 = character3
+     * 
+     * This means it may be extended to showcase more maps by adding more cases.
+     * 
+     *  - isLeftSide is if we are modifying left poster
+     *  - character is the character ID. EG 1 = character 1.
+     */
+    private void SetPlayerPosterImage(bool isLeftSide, int character)
+    {
+        // Determine which character poster it should modify
+        GameObject characterPoster = (isLeftSide) ? this.playerOnePoster : this.playerTwoPoster;
+
+        // change the background sprite based on the corresponding value.
+        switch (character)
+        {
+            case 1:
+                spriteManager.UpdateCharacterPoster(characterPoster, isLeftSide, 1);
+                break;
+            case 2:
+                spriteManager.UpdateCharacterPoster(characterPoster, isLeftSide, 2);
+                break;
+            case 3:
+                spriteManager.UpdateCharacterPoster(characterPoster, isLeftSide, 3);
+                break;
+            default:
+                spriteManager.UpdateCharacterPoster(characterPoster, isLeftSide, 0);
+                break;
+
+        }
+    }
 
     /*
      * Upon the mouse hovering over a button, when applicable, this method 
@@ -108,12 +169,12 @@ public class TomsButtonHandler : MonoBehaviour {
 
     /*
      * Upon the mouse hovering over a button, when applicable, this method 
-     * will change the background to a sprite of the map to display to the 
-     * player what the map looks like. 
+     * will change the highlight of a  character portrait display to the 
+     * player what character they are currently selecting
      * 
-     *  Case 0 = Main menu background
-     *  Case 1 = Map one 
-     *  Case 2 = Map two
+     *  Case 1 = character1
+     *  Case 2 = character2
+     *  Case 3 = character3
      * 
      * This means it may be extended to showcase more maps by adding more cases.
      * 
