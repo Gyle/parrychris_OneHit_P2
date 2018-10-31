@@ -29,22 +29,12 @@ public class TomsButtonHandler : MonoBehaviour {
         spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
+        playerOneSelect = GameObject.Find("PlayerOneCharacterSelectPanel");
+        playerTwoSelect = GameObject.Find("PlayerTwoCharacterSelectPanel");
 
         // On start, player one is always the first to select character
-        playerOneSelectingCharacter = true;
+        playerOneSelectingCharacter = true;   
 
-        // Try to get the character select panels
-        try
-        {
-            playerOneSelect = GameObject.Find("PlayerOneCharacterSelectPanel");
-            playerTwoSelect = GameObject.Find("PlayerTwoCharacterSelectPanel");
-        }
-        // Catch why it failed instead of crashing the game
-        catch(Exception ex)
-        {
-            Debug.Log(ex);
-        }
-       
 
         myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
         if (MainMenu == null)
@@ -62,6 +52,9 @@ public class TomsButtonHandler : MonoBehaviour {
         {
             Debug.Log("Error finding game objects of name PlayerTwoCharacterSelectPanel");
         }
+
+        // hide player 2 character select panel on load
+        playerTwoSelect.SetActive(false);
 	}
 
 	public void playMap1(){
@@ -140,7 +133,6 @@ public class TomsButtonHandler : MonoBehaviour {
         switch (character)
         {
             case 1:
-                Debug.Log("update character 1 sprite");
                 spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 1);
                 break;
             case 2:
@@ -187,7 +179,7 @@ public class TomsButtonHandler : MonoBehaviour {
      *  - player represents if it is player 1 or 2
      *  - character is the character ID. EG 1 = character 1.
      */
-    public void WriteCharacterToDataStore(int player, int character){
+    private void WriteCharacterToDataStore(int player, int character){
 
         // Update the Data Store based on which player we are dealing with.
         switch(player){
@@ -203,12 +195,32 @@ public class TomsButtonHandler : MonoBehaviour {
         }
     }
 
+
+    public void SelectCharacterForPlayerOne(int character){
+        WriteCharacterToDataStore(1, character);
+    }
+
+    public void SelectCharacterForPlayerTwo(int character)
+    {
+        WriteCharacterToDataStore(2, character);
+    }
+
+
+
     public void PlayerOnePanelToPlayerTwo(){
         playerOneSelectingCharacter = false;
+        playerOneSelect.SetActive(false);
+        playerTwoSelect.SetActive(true);
     }
 
     public void PlayerTwoPanelToPlayerOne(){
         playerOneSelectingCharacter = true;
+        playerOneSelect.SetActive(true);
+        playerTwoSelect.SetActive(false);
+    }
+
+    public void ToMapSelect(){
+        SceneManager.LoadScene("Map_Menu");
     }
 
     void Update()
