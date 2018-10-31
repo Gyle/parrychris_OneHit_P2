@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: f598460bed1794633be46e4838b2da97
+guid: a8138ddb127494e7b8c2179ca62745bf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Jump_0
-    21300002: Jump_1
-    21300004: Jump_2
+    21300000: Special_attack_0
+    21300002: Special_attack_1
+    21300004: Special_attack_2
+    21300006: Special_attack_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: Special_attack_0
       rect:
         serializedVersion: 2
-        x: 2194
-        y: 149
-        width: 893
-        height: 1461
+        x: 2214
+        y: 141
+        width: 1218
+        height: 1401
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,19 +102,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c437c389523d4a1688a29b3c7b85e53
+      spriteID: 080ecd3caf24a49fbb58a45f5fa80838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: Special_attack_1
       rect:
         serializedVersion: 2
-        x: 3146
-        y: 237
-        width: 878
-        height: 1373
+        x: 3476
+        y: 134
+        width: 2849
+        height: 1488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ed5b3b88189411c97d36df3f9359ee
+      spriteID: 43975c97385ec4e508edb97b650f4d08
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: Special_attack_2
       rect:
         serializedVersion: 2
-        x: 4085
-        y: 640
-        width: 1193
-        height: 913
+        x: 6357
+        y: 137
+        width: 2809
+        height: 1540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +142,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65d2de0d7b23244caaa6aad9ac364164
+      spriteID: 5d369f565e30a4f78963cf755c595bb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Special_attack_3
+      rect:
+        serializedVersion: 2
+        x: 9192
+        y: 137
+        width: 2633
+        height: 1478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc92d79d81b1e4e38a071d97f6e4d9f7
       vertices: []
       indices: 
       edges: []
@@ -149,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 383e5102b9c6c430ab9e7285ec4b05b9
+    spriteID: 16a4db369c63b497ba72ba834cef6ed1
     vertices: []
     indices: 
     edges: []

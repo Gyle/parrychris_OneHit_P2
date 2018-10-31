@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f598460bed1794633be46e4838b2da97
+guid: fb581b183b0134107aab4dab84af82ac
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Jump_0
-    21300002: Jump_1
-    21300004: Jump_2
+    21300000: JumpAttack_0
+    21300002: JumpAttack_1
+    21300004: JumpAttack_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,13 +87,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: JumpAttack_0
       rect:
         serializedVersion: 2
-        x: 2194
-        y: 149
-        width: 893
-        height: 1461
+        x: 1945
+        y: 142
+        width: 1466
+        height: 1495
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,19 +101,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c437c389523d4a1688a29b3c7b85e53
+      spriteID: cc85fabd500a84913b5f7f2590fcbf99
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: JumpAttack_1
       rect:
         serializedVersion: 2
-        x: 3146
-        y: 237
-        width: 878
-        height: 1373
+        x: 3415
+        y: 130
+        width: 1354
+        height: 1706
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +121,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ed5b3b88189411c97d36df3f9359ee
+      spriteID: 7444796e624c347ac996fb60d25d3c96
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: JumpAttack_2
       rect:
         serializedVersion: 2
-        x: 4085
-        y: 640
-        width: 1193
-        height: 913
+        x: 4765
+        y: 122
+        width: 1361
+        height: 1525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65d2de0d7b23244caaa6aad9ac364164
+      spriteID: d4ad667d0da5f4109833eed68813a723
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 383e5102b9c6c430ab9e7285ec4b05b9
+    spriteID: 61e4af82ac7ae4d40a8d04ac0c51e83e
     vertices: []
     indices: 
     edges: []
