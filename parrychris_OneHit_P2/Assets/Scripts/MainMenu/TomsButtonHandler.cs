@@ -155,7 +155,7 @@ public class TomsButtonHandler : MonoBehaviour {
     }
 
     public void PlayerTwoPanelToPlayerOne(){
-        playerOneSelectingCharacter = true
+        playerOneSelectingCharacter = true;
     }
 
     void Update()
