@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 63107262}
   - component: {fileID: 63107261}
   - component: {fileID: 63107260}
-  - component: {fileID: 63107265}
   m_Layer: 5
   m_Name: Main_Menu
   m_TagString: Untagged
@@ -226,17 +225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &63107265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63107251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b56ce7db0e63744686857eddfc20dc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &319986162
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,8 +235,9 @@ GameObject:
   m_Component:
   - component: {fileID: 319986163}
   - component: {fileID: 319986164}
+  - component: {fileID: 319986165}
   m_Layer: 5
-  m_Name: MenuButtons
+  m_Name: PlayerOneCharacterSelectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,6 +287,17 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &319986165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319986162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b56ce7db0e63744686857eddfc20dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649574966
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
+        - m_Target: {fileID: 0}
           m_MethodName: changeBackground
           m_Mode: 3
           m_Arguments:
@@ -465,7 +465,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
+        - m_Target: {fileID: 0}
           m_MethodName: changeBackground
           m_Mode: 3
           m_Arguments:
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63107265}
+      - m_Target: {fileID: 0}
         m_MethodName: playMap1
         m_Mode: 1
         m_Arguments:
@@ -565,7 +565,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4f8f271ebc7d3436f9b06909755e5350, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 261f479b4fcdc4354a5e13d86ac19c18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63107265}
+      - m_Target: {fileID: 0}
         m_MethodName: playMap1
         m_Mode: 1
         m_Arguments:
@@ -688,7 +688,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e45f2f82c456f4fc7abde8c197038e2a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8daf87fe0df874921ad01ca15cd052b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -740,8 +740,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+        - m_Target: {fileID: 319986165}
+          m_MethodName: HighlightPortrait
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -757,13 +757,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+        - m_Target: {fileID: 319986165}
+          m_MethodName: UnhighlightPortrait
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1223,13 +1223,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+        - m_Target: {fileID: 319986165}
+          m_MethodName: ChangeBackground
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1240,7 +1240,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 63107265}
+        - m_Target: {fileID: 0}
           m_MethodName: changeBackground
           m_Mode: 3
           m_Arguments:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63107265}
+      - m_Target: {fileID: 0}
         m_MethodName: playMap1
         m_Mode: 1
         m_Arguments:
@@ -1340,7 +1340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 24e38c98eb6484e66930297c8b193508, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4541579fe27a4f2cbdbaf3bf6a87001, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

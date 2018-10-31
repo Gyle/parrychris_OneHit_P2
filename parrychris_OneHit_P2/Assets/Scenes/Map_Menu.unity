@@ -550,7 +550,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+          m_MethodName: ChangeBackground
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -567,7 +567,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+          m_MethodName: ChangeBackground
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1213,7 +1213,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+          m_MethodName: ChangeBackground
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1230,7 +1230,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 63107265}
-          m_MethodName: changeBackground
+          m_MethodName: ChangeBackground
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -22,11 +22,11 @@ public class SpriteManager {
     public SpriteManager () {
         // Initialise the arrays 
         this.mapSprites = new Sprite[mapCount+1];   // +1 because of default background at title screen.
-        this.characterSelectSprites = new Sprite[characterCount];
+        this.characterSelectSprites = new Sprite[characterCount*2]; // *2 because dark and light portraits
 
         // Populate the arrays
         this.LoadMapSprites();
-        this.LoadCharacterSprites();
+        this.LoadCharacterPortraitSprites();
 	}
 
     /*
@@ -50,21 +50,45 @@ public class SpriteManager {
     /*
      * In order to load character images for character select, the name of the 
      * file must follow a simple naming convention. 
-     * EG: Character one = character1.png or .jpg
+     * EG: Character one = character1_dark.png and character1_light.png
      */
-    private void LoadCharacterSprites(){
-        // currently returns as we need to change the project structure to work 
-        // for loading character images.
-        return;
+    private void LoadCharacterPortraitSprites(){
 
-        // load all character images
-        for (int i = 1; i < characterCount; i += 1)
+        // load all character portrait images
+        for (int i = 0; i+1 < characterCount; i += 2)
         {
-            // determine file path of map image
-            string filePath = "Characters/character" + i;
+            // determine file path of the portraits
+            string filePathDark = "SelectionBox/character" + i + "_dark";
+            string filePathLight = "SelectionBox/character" + i + "_light";
 
-            // Set map sprites to coresponding indices.
-            characterSelectSprites[i] = Resources.Load<Sprite>(filePath);
+            // Set dark and light portraits to their corresponding indices.
+            characterSelectSprites[i] = Resources.Load<Sprite>(filePathDark);
+            characterSelectSprites[i] = Resources.Load<Sprite>(filePathLight);
+        }
+    }
+
+    /*
+     * Update the sprite image of the character portrait based on if it needs 
+     * to be highlighted or unhighlighted and apply this to the corresponding 
+     * character portrait
+     * 
+     *  - characterPortrait is the button for selecting the character
+     *  - highlight is if we make the sprite dark or light
+     *  - character is the ID. eg 1 = character 1
+     */
+    public void UpdateCharacterPortrait(GameObject characterPortrait, bool highlight, int character){
+        // Get image component from the portrait
+        Image imageScript = characterPortrait.GetComponent<Image>();
+
+        // Determine the starting index of the character
+        int index = character*2;
+
+        // highlight or unhighlight the portrait. Dark = i, Light = i+1
+        if (highlight){
+            imageScript.sprite = characterSelectSprites[index + 1];
+        }
+        else{
+            imageScript.sprite = characterSelectSprites[index];
         }
     }
 

@@ -74,6 +74,9 @@ public class TomsButtonHandler : MonoBehaviour {
      *  Case 2 = Map two
      * 
      * This means it may be extended to showcase more maps by adding more cases.
+     * 
+     *
+     *  - backgroundImage represents which background to display. EG 1 = map1 background
      */
     public void ChangeBackground(int backgroundImage){
         // change the background sprite based on the corresponding value.
@@ -94,6 +97,15 @@ public class TomsButtonHandler : MonoBehaviour {
         }
     }
 
+    public void HighlightPortrait(int character){
+        ChangePortraitHighlight(true, character);
+    }
+
+    public void UnhighlightPortrait(int character)
+    {
+        ChangePortraitHighlight(false, character);
+    }
+
     /*
      * Upon the mouse hovering over a button, when applicable, this method 
      * will change the background to a sprite of the map to display to the 
@@ -104,35 +116,68 @@ public class TomsButtonHandler : MonoBehaviour {
      *  Case 2 = Map two
      * 
      * This means it may be extended to showcase more maps by adding more cases.
+     * 
+     *  - highlight is if the portrait must be highlighted or not
+     *  - character is the character ID. EG 1 = character 1.
      */
-//     public void ChangePortraitHighlight(bool highlight, int character)
-//     {
-//         // Determine which character panel it should highlight
-//         GameObject characterPanel = (this.playerOneSelectingCharacter) ? this.playerOneSelect : this.playerTwoSelect;
+    private void ChangePortraitHighlight(bool highlight,int character)
+    {
+        // Determine which character panel it should highlight
+        GameObject characterPanel = (this.playerOneSelectingCharacter) ? this.playerOneSelect : this.playerTwoSelect;
 
-//         // change the background sprite based on the corresponding value.
-//         switch (character)
-//         {
-//             case 1:
-//                 spriteManager.HighlightCharacter(characterPanel,highlight,1);
-//                 break;
-//             case 2:
-//                 spriteManager.HighlightCharacter(characterPanel,highlight,1);
-//                 break;
-//             case 3:
-//                 spriteManager.HighlightCharacter(characterPanel,highlight,2);
-//                 break;
-//             default:
-//                 spriteManager.HighlightCharacter(characterPanel,highlight,0);
-//                 break;
+        // Get the portrait that needs to be highlighted from the character panel
+        GameObject characterPortrait = GetPortraitGameObjectByParent(characterPanel, character);
 
-//         }
-//     }
+
+        // change the background sprite based on the corresponding value.
+        switch (character)
+        {
+            case 1:
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 1);
+                break;
+            case 2:
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 1);
+                break;
+            case 3:
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 2);
+                break;
+            default:
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 0);
+                break;
+
+        }
+    }
+
+    /*
+     * Given a parent game object that is a character select panel, return the 
+     * corresponding child as a gabe object.
+     * 
+     *  - parent is character select panel
+     *  - character is the character ID. EG 1 = character 1.
+     */
+    private GameObject GetPortraitGameObjectByParent(GameObject parent,int character){
+        switch (character)
+        {
+            case 1:
+                return parent.transform.Find("character1").gameObject;
+            case 2:
+                return parent.transform.Find("character2").gameObject;
+            case 3:
+                return parent.transform.Find("character3").gameObject;
+            default:
+                Debug.Log("Error, character was out of range of 1 to 3");
+                return null;
+
+        }
+    }
 
     /*
      * When the player selects their character via button click, then the 
      * button will write to the data store static class which character 
      * the corresponding player selected.
+     * 
+     *  - player represents if it is player 1 or 2
+     *  - character is the character ID. EG 1 = character 1.
      */
     public void WriteCharacterToDataStore(int player, int character){
 
