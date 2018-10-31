@@ -55,6 +55,13 @@ public class TomsButtonHandler : MonoBehaviour {
         {
             Debug.LogError("Error finding game objects of name HowToPlayPanel");
         }
+        if (playerOneSelect == null){
+            Debug.Log("Error finding game objects of name PlayerOneCharacterSelectPanel");
+        }
+        if (playerTwoSelect == null)
+        {
+            Debug.Log("Error finding game objects of name PlayerTwoCharacterSelectPanel");
+        }
 	}
 
 	public void playMap1(){
@@ -133,13 +140,14 @@ public class TomsButtonHandler : MonoBehaviour {
         switch (character)
         {
             case 1:
+                Debug.Log("update character 1 sprite");
                 spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 1);
                 break;
             case 2:
-                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 1);
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 2);
                 break;
             case 3:
-                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 2);
+                spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 3);
                 break;
             default:
                 spriteManager.UpdateCharacterPortrait(characterPortrait, highlight, 0);

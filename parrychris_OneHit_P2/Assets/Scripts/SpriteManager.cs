@@ -55,15 +55,19 @@ public class SpriteManager {
     private void LoadCharacterPortraitSprites(){
 
         // load all character portrait images
-        for (int i = 0; i+1 < characterCount; i += 2)
+        for (int i = 0; i < characterCount; i += 1)
         {
+            // determine starting index and file ID
+            int index = i * 2;
+            int fileID = i + 1;
+  
             // determine file path of the portraits
-            string filePathDark = "SelectionBox/character" + i + "_dark";
-            string filePathLight = "SelectionBox/character" + i + "_light";
+            string filePathDark = "SelectionBox/character" + fileID + "_dark";
+            string filePathLight = "SelectionBox/character" + fileID + "_light";
 
             // Set dark and light portraits to their corresponding indices.
-            characterSelectSprites[i] = Resources.Load<Sprite>(filePathDark);
-            characterSelectSprites[i] = Resources.Load<Sprite>(filePathLight);
+            characterSelectSprites[index] = Resources.Load<Sprite>(filePathDark);
+            characterSelectSprites[index+1] = Resources.Load<Sprite>(filePathLight);
         }
     }
 
@@ -81,7 +85,7 @@ public class SpriteManager {
         Image imageScript = characterPortrait.GetComponent<Image>();
 
         // Determine the starting index of the character
-        int index = character*2;
+        int index = (character-1)*2;
 
         // highlight or unhighlight the portrait. Dark = i, Light = i+1
         if (highlight){
