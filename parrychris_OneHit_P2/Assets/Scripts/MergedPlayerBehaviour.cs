@@ -108,7 +108,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         if(DataStore.controller1 && gameObject.tag == "Player1") {
             this.controls = Resources.Load<Controls>("Player1PS3Controller");
         } else if(DataStore.controller2 && gameObject.tag == "Player2") {
-            this.controls = Resources.Load<Controls>("Player1PS3Controller");
+            this.controls = Resources.Load<Controls>("Player2PS3Controller");
         }
 
         //initialise the sound sources

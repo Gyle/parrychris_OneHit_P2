@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 254a2e1bc7458d14fb955e079d93cabe, type: 3}
-  m_Name: Player1PS3Controller
+  m_Name: Player2PS3Controller
   m_EditorClassIdentifier: 
-  left: 357
-  right: 355
-  jump: 354
-  dash: 364
-  block: 363
-  jab: 365
-  groundPound: 356
+  left: 377
+  right: 375
+  jump: 374
+  dash: 384
+  block: 383
+  jab: 385
+  groundPound: 376
