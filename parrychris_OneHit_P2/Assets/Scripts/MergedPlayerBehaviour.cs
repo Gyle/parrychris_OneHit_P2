@@ -54,6 +54,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private float gameOverTime;
     private float gameOverWait = 2f;
     public GameObject scoreboard;
+    public GameObject endMenu;
 
     //audio
     private AudioSource jumpSound;
@@ -502,10 +503,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 Debug.Log("update score p2");
             }
 
-            if(DataStore.p1Wins >= 3 || DataStore.p2Wins >= 3){
-                DataStore.p1Wins = 0;
-                DataStore.p2Wins = 0;
-            }
+
             GameOver();
         }
     }
@@ -531,7 +529,16 @@ public class MergedPlayerBehaviour : MonoBehaviour
             //restart the current scene
             DataStore.ready = false;
             //this.fightMusic.PlayDelayed(2.0f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (DataStore.p1Wins >= 3 || DataStore.p2Wins >= 3)
+            {
+                DataStore.p1Wins = 0;
+                DataStore.p2Wins = 0;
+                endMenu.SetActive(true);
+            }
+            else{
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
         }
         else if (!won)
         {
