@@ -11,6 +11,7 @@ public class TomsButtonHandler : MonoBehaviour {
     // Main menu panels
 	private GameObject MainMenu;
 	private GameObject HowToPlay;
+    private AudioSource btnPressed;
 
     // Character select panels
     private GameObject playerOneSelect;
@@ -30,6 +31,7 @@ public class TomsButtonHandler : MonoBehaviour {
     private SpriteManager spriteManager;
 
 	void Start(){
+        this.btnPressed = GetComponent<AudioSource>();
         spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
@@ -273,18 +275,21 @@ public class TomsButtonHandler : MonoBehaviour {
 
 
     public void PlayerOnePanelToPlayerTwo(){
+        this.btnPressed.Play();//make btn pressed sound
         playerOneSelectingCharacter = false;
         playerOneSelect.SetActive(false);
         playerTwoSelect.SetActive(true);
     }
 
     public void PlayerTwoPanelToPlayerOne(){
+        this.btnPressed.Play();//make btn pressed sound
         playerOneSelectingCharacter = true;
         playerOneSelect.SetActive(true);
         playerTwoSelect.SetActive(false);
     }
 
     public void ToMapSelect(){
+        this.btnPressed.Play();//make btn pressed sound
         SceneManager.LoadScene("Map_Menu");
     }
 
@@ -306,6 +311,7 @@ public class TomsButtonHandler : MonoBehaviour {
 
     public void Quit()
 	{
+        this.btnPressed.Play();//make btn pressed sound
 		//If we are running in a standalone build of the game
 	#if UNITY_STANDALONE
 		//Quit the application
@@ -323,6 +329,7 @@ public class TomsButtonHandler : MonoBehaviour {
      * Navigate From 'Main Menu' section to 'How to play' section
      */
 	public void ToMainMenuFromHowToPlay(){
+        this.btnPressed.Play();//make btn pressed sound
 		HowToPlay.SetActive(false);
 		MainMenu.SetActive(true);
 	}
@@ -331,17 +338,20 @@ public class TomsButtonHandler : MonoBehaviour {
      * Navigate From 'How to play' section back to 'MainMenu' section
      */
 	public void ToHowToPlayFromMainMenu(){
+        this.btnPressed.Play();//make btn pressed sound
 		MainMenu.SetActive(false);
 		HowToPlay.SetActive(true);
 		
 	}
 
     public void checkForNextKeyPress(GameObject button){
+        this.btnPressed.Play();//make btn pressed sound
         this.checkingForNextKeyPress = true;
         this.buttonCheckingFor = button;
     }
 
     private void modifyKey(KeyCode newKey){
+        this.btnPressed.Play();//make btn pressed sound
         TomsControlTextScript child = this.buttonCheckingFor.GetComponentInChildren<TomsControlTextScript>();
         //change the key code using reflection
         child.controls.GetType().GetField(child.command).SetValue(child.controls,newKey);
