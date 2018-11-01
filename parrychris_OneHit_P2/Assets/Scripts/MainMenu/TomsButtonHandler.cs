@@ -11,7 +11,11 @@ public class TomsButtonHandler : MonoBehaviour {
     // Main menu panels
 	private GameObject MainMenu;
 	private GameObject HowToPlay;
+
+    //audio
     private AudioSource btnPressed;
+    private AudioSource fightMusic;
+    private AudioSource menuMusic;
 
     // Character select panels
     private GameObject playerOneSelect;
@@ -32,6 +36,8 @@ public class TomsButtonHandler : MonoBehaviour {
 
 	void Start(){
         this.btnPressed = GetComponent<AudioSource>();
+        this.fightMusic = GameObject.Find("FightMusic").GetComponent<AudioSource>();
+        this.menuMusic = GameObject.Find("MenuMusic").GetComponent<AudioSource>();
         spriteManager = new SpriteManager();
 		MainMenu = GameObject.Find("MenuPanel");
 		HowToPlay = GameObject.Find("HowToPlayPanel");
@@ -78,9 +84,13 @@ public class TomsButtonHandler : MonoBehaviour {
     }
 
 	public void playMap1(){
+        this.menuMusic.Stop();
+        this.fightMusic.Play();
 		SceneManager.LoadScene("Map1");
 	}
 	public void playMap2(){
+        this.menuMusic.Stop();
+        this.fightMusic.Play();
 		SceneManager.LoadScene("Map2");
 	}
 
