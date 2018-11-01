@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6336ba56148234bf4acf244d4a63bc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controls: {fileID: 0}
+  controls: {fileID: 11400000, guid: 5e6acf870c6396742bbb009f3bc8015e, type: 2}
   isPlayer1: 0
   character: default
   attackHitboxes:
