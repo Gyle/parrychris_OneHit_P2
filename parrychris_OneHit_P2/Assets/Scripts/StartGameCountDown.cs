@@ -7,17 +7,10 @@ public class StartGameCountDown : MonoBehaviour {
     public GameObject players;
 
     private float countDownTime = 4.0f;
-    private MergedPlayerBehaviour[] playerScripts;
     private GameObject[] countDownObjects = new GameObject[4];
 
 	// Use this for initialization
 	void Start () {
-        playerScripts = players.GetComponentsInChildren<MergedPlayerBehaviour>();
-        //disable the control scripts for each player
-        // foreach(MergedPlayerBehaviour script in playerScripts){
-        //     //script.enabled = false;
-        // }
-
         countDownObjects[0] = GameObject.Find("CountDown3");
         countDownObjects[1] = GameObject.Find("CountDown2");
         countDownObjects[2] = GameObject.Find("CountDown1");
@@ -40,11 +33,7 @@ public class StartGameCountDown : MonoBehaviour {
         }
         else if(countDownTime<=1){
             DataStore.ready = true;
-            //reenable player controls
-            // foreach (MergedPlayerBehaviour script in playerScripts)
-            // {
-            //     script.enabled = true;
-            // }
+
             countDownObjects[2].SetActive(false);
             countDownObjects[3].SetActive(true);
         }else if (countDownTime <= 2){

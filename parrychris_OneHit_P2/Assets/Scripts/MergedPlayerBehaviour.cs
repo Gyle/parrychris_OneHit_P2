@@ -94,6 +94,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
         } else {
             //Nothing, you are the default
         }
+
+        if(DataStore.controller1 && gameObject.tag == "Player1") {
+            this.controls = Resources.Load<Controls>("Player1PS3Controller");
+        } else if(DataStore.controller2 && gameObject.tag == "Player2") {
+            this.controls = Resources.Load<Controls>("Player1PS3Controller");
+        }
     }
 
     private void handleBlockMeter(){
@@ -382,7 +388,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
             {
                 dashing = false;
                 //Set grounded here to fix a bug of player getting stuck after dashing
-                grounded = true;
                 animator.SetBool("Dash_Attack", false);     //set dash attack variable in animator to false
                 this.rb2d.velocity = new Vector2(0, 0);
             }
@@ -481,6 +486,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         else if (gameOver && Time.time > gameOverTime + gameOverWait)
         {
             //restart the current scene
+            DataStore.ready = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (!won)

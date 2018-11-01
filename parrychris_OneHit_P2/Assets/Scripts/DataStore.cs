@@ -14,6 +14,8 @@ public static class DataStore
     // declare the data that will be carried over between scenes.
     private static int playerOneCharacter, playerTwoCharacter, map;
     public static bool ready = false;
+    public static bool controller1 = false;
+    public static bool controller2 = false;
 
     // This variable represents which character player one selected
     public static int PlayerOneCharacter{
