@@ -16481,8 +16481,8 @@ GameObject:
   - component: {fileID: 1709114128}
   - component: {fileID: 1709114139}
   m_Layer: 0
-  m_Name: PlayerTwo
-  m_TagString: Player2
+  m_Name: PlayerOne
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20522,8 +20522,8 @@ GameObject:
   - component: {fileID: 2051707647}
   - component: {fileID: 2051707651}
   m_Layer: 0
-  m_Name: PlayerOne
-  m_TagString: Player1
+  m_Name: PlayerTwo
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

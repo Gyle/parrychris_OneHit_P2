@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254a2e1bc7458d14fb955e079d93cabe, type: 3}
   m_Name: Player2Controls
   m_EditorClassIdentifier: 
-  left: 97
-  right: 100
-  jump: 119
-  dash: 306
-  block: 101
-  jab: 304
-  groundPound: 115
+  left: 276
+  right: 275
+  jump: 273
+  dash: 305
+  block: 307
+  jab: 303
+  groundPound: 274
