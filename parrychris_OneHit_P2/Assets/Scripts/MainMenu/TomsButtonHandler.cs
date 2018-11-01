@@ -350,6 +350,32 @@ public class TomsButtonHandler : MonoBehaviour {
         this.buttonCheckingFor = button;
     }
 
+    /*
+     * Switch between player one using controller in option menu
+     */
+    public void TogglePS3ControllerPlayerOne(GameObject button){
+        DataStore.controller1 = !DataStore.controller1;
+        string setting = (DataStore.controller1) ? "on" : "off";
+        Text child = button.GetComponentInChildren<Text>();
+
+        //change the value of the text
+        child.text = setting;
+    }
+
+    /*
+     * Switch between player two using controller in option menu
+     */
+    public void TogglePS3ControllerPlayerTwo(GameObject button){
+        DataStore.controller2 = !DataStore.controller2;
+        string setting = (DataStore.controller2) ? "on" : "off";
+        Text child = button.GetComponentInChildren<Text>();
+
+        //change the value of the text
+        child.text = setting;
+            
+
+    }
+
     private void modifyKey(KeyCode newKey){
         this.btnPressed.Play();//make btn pressed sound
         TomsControlTextScript child = this.buttonCheckingFor.GetComponentInChildren<TomsControlTextScript>();
