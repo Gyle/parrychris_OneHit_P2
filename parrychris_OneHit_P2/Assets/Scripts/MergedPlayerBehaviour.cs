@@ -198,9 +198,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Called every frame 
     void FixedUpdate()
     {
-        if(!isPlayer1){
-            Debug.Log("block value for P | " + currentBlockDur);
-        }
 
         if (gameOver)
         {

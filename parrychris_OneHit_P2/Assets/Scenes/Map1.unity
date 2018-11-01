@@ -32623,7 +32623,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1053227042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2732677, y: -5.805, z: 0}
+  m_LocalPosition: {x: 5.2732677, y: -5.805, z: -4}
   m_LocalScale: {x: 0.13830435, y: 0.13830437, z: 0.6915218}
   m_Children:
   - {fileID: 474809037}
@@ -32646,7 +32646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: 8f9c4accb416b3d408f7b0e51d615b15, type: 2}
   isPlayer1: 1
-  character: default
   attackHitboxes:
   - {fileID: 1986714499}
   - {fileID: 1860976560}
@@ -59847,7 +59846,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4405753336077340, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4405753336077340, guid: a1cddc7654f9a4ae8b838e6e027ed97e, type: 2}
       propertyPath: m_LocalRotation.x

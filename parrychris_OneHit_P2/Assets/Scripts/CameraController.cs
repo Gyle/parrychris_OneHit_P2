@@ -35,6 +35,10 @@ public class CameraController : MonoBehaviour {
         Vector3 midpoint = (t1.position + t2.position) / 2f;
         // Distance between objects
         float distance = (t1.position - t2.position).magnitude;
+        if(distance<4){
+            distance = 4;
+        }
+        Debug.Log("Distance is: "+distance);
         //midpoint.y = midpoint.y + 1.8f;
         
         // Move camera a certain distance
