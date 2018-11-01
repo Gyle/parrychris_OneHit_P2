@@ -31,10 +31,10 @@ public class StartGameCountDown : MonoBehaviour {
 	void Update () {
         countDownTime -= Time.deltaTime;
 
-        if(countDownTime<=0){
+        if(countDownTime<=0){//1 second into fight the fight graphic is removed.
             countDownObjects[3].SetActive(false);
         }
-        else if(countDownTime<=1){
+        else if(countDownTime<=1){//Game starts when timer hits 1 second
             DataStore.ready = true;
             if (beatsSounded == 3)
             {
@@ -43,7 +43,7 @@ public class StartGameCountDown : MonoBehaviour {
             }
             countDownObjects[2].SetActive(false);
             countDownObjects[3].SetActive(true);
-        }else if (countDownTime <= 2){
+        }else if (countDownTime <= 2){//1
             if (beatsSounded == 2)
             {
                 buzzer.Play();
@@ -51,7 +51,7 @@ public class StartGameCountDown : MonoBehaviour {
             }
             countDownObjects[1].SetActive(false);
             countDownObjects[2].SetActive(true);
-        }else if (countDownTime <= 3){
+        }else if (countDownTime <= 3){//2
             if (beatsSounded == 1)
             {
                 buzzer.Play();
@@ -59,7 +59,7 @@ public class StartGameCountDown : MonoBehaviour {
             }
             countDownObjects[0].SetActive(false);
             countDownObjects[1].SetActive(true);
-        }else if (countDownTime<=4){
+        }else if (countDownTime<=4){//3
             if (beatsSounded == 0)
             {
                 buzzer.Play();

@@ -113,13 +113,17 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
         //initialise the sound sources
         AudioSource[] sounds = GetComponents<AudioSource>();
-        Debug.Log(sounds);
-        jumpSound = sounds[0];
-        jabSound = sounds[1];
-        groundPoundSound = sounds[2];
-        dashSound = sounds[3];
-        gameOverSound = sounds[4];
-        this.fightMusic = GameObject.Find("FightMusic").GetComponent<AudioSource>();
+        if(sounds!=null){
+            jumpSound = sounds[0];
+            jabSound = sounds[1];
+            groundPoundSound = sounds[2];
+            dashSound = sounds[3];
+            gameOverSound = sounds[4];
+        }
+        GameObject obj = GameObject.Find("FightMusic");
+        if(obj!=null){
+            this.fightMusic = obj.GetComponent<AudioSource>();
+        }
     }
 
     private void handleBlockMeter(){
@@ -195,7 +199,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
         else if (Input.GetKeyDown(controls.jab) && shieldUp == false)
         {    //KeyDown is beginning of melee animation and launchAttack
             animator.SetBool("Jab_attack", true);
-            this.jabSound.Play();
+            if(this.jabSound!=null){
+                this.jabSound.Play();
+            }
             if(attackRange == 2) {
                 LaunchAttack(attackHitboxes[2]);
             } else {
@@ -436,7 +442,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
             dashing = true;
             //Set time dash should stop
             dashStop = Time.time + dashLength;
-            this.dashSound.Play();
+            if(this.dashSound!=null){
+                this.dashSound.Play();
+            }
 
         }
         if (shieldUp)
@@ -469,7 +477,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
             animator.SetBool("isJumping", true);
             grounded = false;
             jumpCount++;
-            this.jumpSound.Play();
+            if(this.jumpSound!=null){
+                this.jumpSound.Play();
+            }
         }
     }
 
@@ -521,8 +531,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
             GameObject child = canvas.transform.GetChild(childIndex).gameObject;
             child.gameObject.GetComponent<Image>().enabled = true;
             //=============================================================================================//
-            //this.gameOverSound.Play();
-            //this.fightMusic.Stop();
+            if(this.gameOverSound!=null){
+                this.gameOverSound.Play();
+            }
+            if(this.fightMusic!=null){
+                this.fightMusic.Stop();
+            }
 
             gameOverTime = Time.time;
             gameOver = true;
@@ -532,7 +546,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             //restart the current scene
             DataStore.ready = false;
-            //this.fightMusic.PlayDelayed(2.0f);
+            if(this.fightMusic!=null){
+                this.fightMusic.PlayDelayed(2.0f);
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (!won)
