@@ -14,9 +14,9 @@ public class StartGameCountDown : MonoBehaviour {
 	void Start () {
         playerScripts = players.GetComponentsInChildren<MergedPlayerBehaviour>();
         //disable the control scripts for each player
-        foreach(MergedPlayerBehaviour script in playerScripts){
-            script.enabled = false;
-        }
+        // foreach(MergedPlayerBehaviour script in playerScripts){
+        //     //script.enabled = false;
+        // }
 
         countDownObjects[0] = GameObject.Find("CountDown3");
         countDownObjects[1] = GameObject.Find("CountDown2");
@@ -39,11 +39,12 @@ public class StartGameCountDown : MonoBehaviour {
             countDownObjects[3].SetActive(false);
         }
         else if(countDownTime<=1){
+            DataStore.ready = true;
             //reenable player controls
-            foreach (MergedPlayerBehaviour script in playerScripts)
-            {
-                script.enabled = true;
-            }
+            // foreach (MergedPlayerBehaviour script in playerScripts)
+            // {
+            //     script.enabled = true;
+            // }
             countDownObjects[2].SetActive(false);
             countDownObjects[3].SetActive(true);
         }else if (countDownTime <= 2){
