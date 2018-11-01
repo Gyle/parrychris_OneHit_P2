@@ -250,7 +250,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 moveVelocity = playerSpeed;
             }
             //Dash
-            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing && !shieldUp)
             {
                 //Set the time for next earliest dash
                 nextDash = Time.time + dashCooldown;
@@ -284,7 +284,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 moveVelocity = playerSpeed;
             }
             //Dash
-            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing && !shieldUp)
             {
                 //Set the time for next earliest dash
                 nextDash = Time.time + dashCooldown;
@@ -489,6 +489,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
             //PlayerOne hit successful
             //Debug.Log("Player One Wins!");
             won = true;
+            if(gameObject.tag == "Player1"){
+                DataStore.p1Wins++;
+            } else if(gameObject.tag == "Player2"){
+                DataStore.p2Wins++;
+            }
             GameOver();
         }
     }

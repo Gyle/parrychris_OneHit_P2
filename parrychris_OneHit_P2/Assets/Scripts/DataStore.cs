@@ -16,6 +16,8 @@ public static class DataStore
     public static bool ready = false;
     public static bool controller1 = false;
     public static bool controller2 = false;
+    public static int p1Wins = 0;
+    public static int p2Wins = 0;
 
     // This variable represents which character player one selected
     public static int PlayerOneCharacter{

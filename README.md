@@ -1,5 +1,7 @@
 # One Hit Prototype    
-"One Hit" is a fast paced 2D fighting game, with a 3D background. The twist is that it only requires one successful attack to defeat the other player, winning the round.  
+"One Hit" is a fast paced 2D fighting game, with a 3D background. The twist is that it only requires one successful attack to defeat the other player, winning the round.
+
+**Note:** Quite a few commits were from the in-lab macs and are labelled as guest commits. In these situations we have tried to make it known who made the commit (usually via comment or in the title).
 
 ## Demos:
 #### Moveset Demo:  
