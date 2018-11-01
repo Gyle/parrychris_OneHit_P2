@@ -38,10 +38,6 @@ public class SpriteManager {
         this.LoadCharacterPortraitSprites();
         this.LoadCharacterPosterSprites();
         this.LoadScoreboardSprites();
-
-        for (int i = 0; i < 4; i+=1){
-            Debug.Log(playerTwoScore);
-        }
 	}
 
     /*

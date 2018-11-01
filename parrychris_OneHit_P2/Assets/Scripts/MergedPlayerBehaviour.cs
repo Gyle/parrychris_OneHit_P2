@@ -112,7 +112,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
         //initialise the sound sources
         AudioSource[] sounds = GetComponents<AudioSource>();
-        Debug.Log(sounds);
         jumpSound = sounds[0];
         jabSound = sounds[1];
         groundPoundSound = sounds[2];
