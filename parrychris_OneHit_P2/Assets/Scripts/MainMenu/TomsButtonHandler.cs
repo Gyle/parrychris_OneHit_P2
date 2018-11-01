@@ -84,11 +84,13 @@ public class TomsButtonHandler : MonoBehaviour {
     }
 
 	public void playMap1(){
+        DataStore.Map = 1;
         this.menuMusic.Stop();
         this.fightMusic.PlayDelayed(2.0f);
 		SceneManager.LoadScene("Map1");
 	}
 	public void playMap2(){
+        DataStore.Map = 2;
         this.menuMusic.Stop();
         this.fightMusic.PlayDelayed(2.0f);
 		SceneManager.LoadScene("Map2");
@@ -396,4 +398,15 @@ public class TomsButtonHandler : MonoBehaviour {
         //unselect the button
         myEventSystem.SetSelectedGameObject(null);
     }
+
+    public void DoRematch(){
+        Debug.Log(DataStore.Map);
+        string mapName = (DataStore.Map == 1) ? "Map1" : "Map2";
+        SceneManager.LoadScene(mapName);
+    }
+
+    public void ToMainMenuFromMap(){
+        SceneManager.LoadScene("Main_Menu");
+    }
+
 }
