@@ -72,7 +72,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
             this.dashLength = 0.15f;
             this.dashCooldown = 0.75f;
             this.jumpSpeed = 25;
-            //TODO attack range
             this.attackRange = 1;
             this.maxBlockDur = 1.5f;
             this.blockCD = 1.2f;
@@ -82,8 +81,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.flipX = !renderer.flipX;
         } else if(character == 3) {
-            //New guy stats here
+            this.dashLength = 0.17f;
+            this.dashCooldown = 1.1f;
+            this.jumpSpeed = 32;
             this.attackRange = 2;
+            this.maxBlockDur = 0.8f;
+            this.blockCD = 1.0f;
+            this.playerSpeed = 11;
             GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Munk/Munk");
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.flipX = !renderer.flipX;
