@@ -85,12 +85,12 @@ public class TomsButtonHandler : MonoBehaviour {
 
 	public void playMap1(){
         this.menuMusic.Stop();
-        this.fightMusic.Play();
+        this.fightMusic.PlayDelayed(1.6f);
 		SceneManager.LoadScene("Map1");
 	}
 	public void playMap2(){
         this.menuMusic.Stop();
-        this.fightMusic.Play();
+        this.fightMusic.PlayDelayed(1.6f);
 		SceneManager.LoadScene("Map2");
 	}
 

@@ -60,16 +60,20 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private AudioSource jabSound;
     private AudioSource groundPoundSound;
     private AudioSource dashSound;
+    private AudioSource gameOverSound;
+    private AudioSource fightMusic;
 
     // Use this for initialization
     void Start()
     {
         //initialise the sound sources
         AudioSource[] sounds = GetComponents<AudioSource>();
+        this.fightMusic = GameObject.Find("FightMusic").GetComponent<AudioSource>();
         jumpSound = sounds[0];
         jabSound = sounds[1];
         groundPoundSound = sounds[2];
         dashSound = sounds[3];
+        gameOverSound = sounds[4];
         //Initializes the players RigidBody, Animator and EnemyScript
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -497,6 +501,8 @@ public class MergedPlayerBehaviour : MonoBehaviour
             int childIndex = this.isPlayer1 ? 0 : 1;
             GameObject child = canvas.transform.GetChild(childIndex).gameObject;
             child.gameObject.GetComponent<Image>().enabled = true;
+            this.gameOverSound.Play();
+            this.fightMusic.Stop();
 
             gameOverTime = Time.time;
             gameOver = true;
@@ -506,6 +512,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             //restart the current scene
             DataStore.ready = false;
+            this.fightMusic.PlayDelayed(1.6f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (!won)
