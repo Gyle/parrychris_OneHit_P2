@@ -38,12 +38,10 @@ public class CameraController : MonoBehaviour {
         if(distance<4){
             distance = 4;
         }
-        Debug.Log("Distance is: "+distance);
-        //midpoint.y = midpoint.y + 1.8f;
         
         // Move camera a certain distance
         Vector3 cameraDestination = midpoint - transform.forward * distance * zoomFactor;
-        //Raise camera slightly in y direction (up)
+        //Raise camera slightly in y direction (up) so that it is looking down on players
         cameraDestination.y += 1f;
 
         //Move the camera from original position to cameraDestination
