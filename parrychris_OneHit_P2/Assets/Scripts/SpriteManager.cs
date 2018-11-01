@@ -12,6 +12,8 @@ public class SpriteManager {
     private Sprite[] mapSprites;
     private Sprite[] characterSelectSprites;
     private Sprite[] characterPosterSprites;
+    private Sprite[] playerOneScore;
+    private Sprite[] playerTwoScore;
 
     // currently two maps
     private int mapCount = 2;
@@ -19,18 +21,44 @@ public class SpriteManager {
     // currently three characters
     private int characterCount = 3;
 
+    // amount of rounds required to win game
+    private int rounds = 3;
+
 	// Use this for initialization
     public SpriteManager () {
         // Initialise the arrays 
         this.mapSprites = new Sprite[mapCount+1];   // +1 because of default background at title screen.
         this.characterSelectSprites = new Sprite[characterCount*2]; // *2 because dark and light portraits
         this.characterPosterSprites = new Sprite[characterCount*2]; // *2 because left and right sides
+        this.playerOneScore = new Sprite[rounds+1]; // +1 because need to include 0 wins sprite
+        this.playerTwoScore = new Sprite[rounds+1];
 
         // Populate the arrays
         this.LoadMapSprites();
         this.LoadCharacterPortraitSprites();
         this.LoadCharacterPosterSprites();
+        this.LoadScoreboardSprites();
+
+        for (int i = 0; i < 4; i+=1){
+            Debug.Log(playerTwoScore);
+        }
 	}
+
+    /*
+     * Find all scoreboard sprites, load them and store them into the 
+     * scoreboard arrays.
+     */
+    private void LoadScoreboardSprites(){
+        for (int i = 0; i <= rounds; i+=1){
+            // determine file path of scoreboard sprites
+            string filePathPlayerOne = "Scoreboard/player1_score" + i;
+            string filePathPlayerTwo = "Scoreboard/player2_score" + i;
+
+            // load and set sprites
+            this.playerOneScore[i] = Resources.Load<Sprite>(filePathPlayerOne);
+            this.playerTwoScore[i] = Resources.Load<Sprite>(filePathPlayerTwo);
+        }
+    }
 
     /*
      * In order to load map images as backgrounds, the name of the file must follow 
@@ -197,21 +225,86 @@ public class SpriteManager {
         // Get the corresponding character sprite
         Sprite characterSprite = characterSelectSprites[character];
 
-        // Check if we need to flip the sprite.
-        //if(!isLeftSide){
-        //    FlipSprite(characterSprite);
-        //}
-
         // change the sprite to the coressponding character
         imageScript.sprite = characterSprite;
     }
 
     /*
-     * This function will flip a given sprite horizontally so that the renderer 
-     * would not need to flip the sprite itself.
+     * Given the scoreboard game object, reset the sprite 
+     * to the zero points sprite.
+     * 
+     *  - scoreboard is the game object of the given player
+     *  - player represents which player's scoreboard
      */
-    private void FlipSprite(Sprite sprite){
-        // Unsure of how to flip sprite without manually flipping at render level code.
-        //sprite.transform.Rotate(new Vector3(0, 180, 0));
+    private void ResetScoreboard(GameObject scoreboard, int player){
+        // Get image component from the scoreboard
+        Image imageScript = scoreboard.GetComponent<Image>();
+
+        // Get the corresponding character sprite
+        Sprite defaultScore = (player == 1)? playerOneScore[0]:playerTwoScore[0];
+
+        // change the sprite to the coressponding character
+        imageScript.sprite = defaultScore;
     }
+
+
+    public void ResetScoreboardPlayerOne(GameObject scoreboard){
+        ResetScoreboard(scoreboard, 1);
+    }
+
+    public void ResetScoreboardPlayerTwo(GameObject scoreboard){
+        ResetScoreboard(scoreboard, 2);
+    }
+
+    /*
+     * Increase the scoreboard value based on which player and how many wins
+     */
+    private void IncrementScoreboard(GameObject scoreboard, int player){
+        // Get image component from the scoreboard
+        Image imageScript = scoreboard.GetComponent<Image>();
+
+        // Array index of next scoreboard sprite
+        int index = (player == 1) ? DataStore.p1Wins : DataStore.p2Wins;
+
+        // Get the corresponding character sprite
+        Sprite defaultScore = (player == 1) ? playerOneScore[index] : playerTwoScore[index];
+
+        // change the sprite to the coressponding character
+        imageScript.sprite = defaultScore;
+    }
+
+    public void UpdateScoreboardPlayerOne(GameObject scoreboard)
+    {
+        UpdateScoreboard(scoreboard, 1);
+    }
+
+    public void UpdateScoreboardPlayerTwo(GameObject scoreboard)
+    {
+        UpdateScoreboard(scoreboard, 2);
+    }
+
+    /*
+     * Set the scoreboard to the appropriate sprites to match the 
+     * wins for both players.
+     */
+    private void UpdateScoreboard(GameObject scoreboard, int player)
+    {
+        Debug.Log("try to update");
+        // Get image component from the scoreboard
+        Image imageScript = scoreboard.GetComponent<Image>();
+
+        // Array index of next scoreboard sprite
+        int index = (player == 1) ? DataStore.p1Wins : DataStore.p2Wins;
+
+        // Get the corresponding character sprite
+        Sprite defaultScore = (player == 1) ? playerOneScore[index] : playerTwoScore[index];
+
+        // change the sprite to the coressponding character
+        imageScript.sprite = defaultScore;
+
+        Debug.Log("done");
+    }
+        
+
+
 }
