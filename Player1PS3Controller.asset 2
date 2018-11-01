@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254a2e1bc7458d14fb955e079d93cabe, type: 3}
   m_Name: Player1PS3Controller
   m_EditorClassIdentifier: 
-  left: 357
-  right: 355
-  jump: 354
-  dash: 364
-  block: 363
-  jab: 365
-  groundPound: 356
+  left: 337
+  right: 335
+  jump: 334
+  dash: 344
+  block: 343
+  jab: 345
+  groundPound: 336
