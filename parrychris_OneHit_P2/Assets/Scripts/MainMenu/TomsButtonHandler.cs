@@ -76,7 +76,9 @@ public class TomsButtonHandler : MonoBehaviour {
         }
 
         // hide player 2 character select panel on load
-        playerTwoSelect.SetActive(false);
+        if(playerTwoSelect!=null){
+            playerTwoSelect.SetActive(false);
+        }
 	}
 
     public void ToCharacterSelect(){

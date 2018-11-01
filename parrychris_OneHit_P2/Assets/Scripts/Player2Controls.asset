@@ -14,7 +14,7 @@ MonoBehaviour:
   left: 276
   right: 275
   jump: 273
-  dash: 305
-  block: 307
-  jab: 303
+  dash: 108
+  block: 39
+  jab: 59
   groundPound: 274
