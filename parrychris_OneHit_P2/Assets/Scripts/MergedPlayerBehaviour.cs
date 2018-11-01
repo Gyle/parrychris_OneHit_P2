@@ -54,6 +54,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private bool won = false;
     private float gameOverTime;
     private float gameOverWait = 2f;
+    public GameObject scoreboard;
 
     //audio
     private AudioSource jumpSound;
@@ -66,14 +67,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //initialise the sound sources
-        AudioSource[] sounds = GetComponents<AudioSource>();
-        this.fightMusic = GameObject.Find("FightMusic").GetComponent<AudioSource>();
-        jumpSound = sounds[0];
-        jabSound = sounds[1];
-        groundPoundSound = sounds[2];
-        dashSound = sounds[3];
-        gameOverSound = sounds[4];
+        
         //Initializes the players RigidBody, Animator and EnemyScript
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -116,6 +110,16 @@ public class MergedPlayerBehaviour : MonoBehaviour
         } else if(DataStore.controller2 && gameObject.tag == "Player2") {
             this.controls = Resources.Load<Controls>("Player1PS3Controller");
         }
+
+        //initialise the sound sources
+        AudioSource[] sounds = GetComponents<AudioSource>();
+        Debug.Log(sounds);
+        jumpSound = sounds[0];
+        jabSound = sounds[1];
+        groundPoundSound = sounds[2];
+        dashSound = sounds[3];
+        gameOverSound = sounds[4];
+        this.fightMusic = GameObject.Find("FightMusic").GetComponent<AudioSource>();
     }
 
     private void handleBlockMeter(){
@@ -461,11 +465,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
         Debug.Log("Double: " + doubleJump + ", jumpCount: " + jumpCount);
         if (grounded || (doubleJump && jumpCount < 2))
         {
-            this.jumpSound.Play();
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+           rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             animator.SetBool("isJumping", true);
             grounded = false;
             jumpCount++;
+            this.jumpSound.Play();
         }
     }
 
@@ -491,8 +495,18 @@ public class MergedPlayerBehaviour : MonoBehaviour
             won = true;
             if(gameObject.tag == "Player1"){
                 DataStore.p1Wins++;
+                DataStore.spriteManager.UpdateScoreboardPlayerOne(scoreboard);
+                Debug.Log("update score p1");
+
             } else if(gameObject.tag == "Player2"){
                 DataStore.p2Wins++;
+                DataStore.spriteManager.UpdateScoreboardPlayerTwo(scoreboard);
+                Debug.Log("update score p2");
+            }
+
+            if(DataStore.p1Wins >= 3 || DataStore.p2Wins >= 3){
+                DataStore.p1Wins = 0;
+                DataStore.p2Wins = 0;
             }
             GameOver();
         }
@@ -506,8 +520,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
             int childIndex = this.isPlayer1 ? 0 : 1;
             GameObject child = canvas.transform.GetChild(childIndex).gameObject;
             child.gameObject.GetComponent<Image>().enabled = true;
-            this.gameOverSound.Play();
-            this.fightMusic.Stop();
+            //=============================================================================================//
+            //this.gameOverSound.Play();
+            //this.fightMusic.Stop();
 
             gameOverTime = Time.time;
             gameOver = true;
@@ -517,7 +532,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             //restart the current scene
             DataStore.ready = false;
-            this.fightMusic.PlayDelayed(2.0f);
+            //this.fightMusic.PlayDelayed(2.0f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (!won)
