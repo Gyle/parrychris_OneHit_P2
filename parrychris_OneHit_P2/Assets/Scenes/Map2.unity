@@ -3178,6 +3178,11 @@ Prefab:
       propertyPath: players
       value: 
       objectReference: {fileID: 233685212}
+    - target: {fileID: 82861960483747142, guid: 3064615b898ed48539e49051c1dd1549,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a832aa4a1298b4a12a4f6482f000f679, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3064615b898ed48539e49051c1dd1549, type: 2}
   m_IsPrefabAsset: 0
