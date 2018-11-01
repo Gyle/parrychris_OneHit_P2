@@ -543,9 +543,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
         {
             //restart the current scene
             DataStore.ready = false;
-            if(this.fightMusic!=null){
-                this.fightMusic.PlayDelayed(2.0f);
-            }
             if (DataStore.p1Wins >= 3 || DataStore.p2Wins >= 3)
             {
                 DataStore.p1Wins = 0;
@@ -553,6 +550,9 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 endMenu.SetActive(true);
             }
             else{
+                if(this.fightMusic!=null){
+                    this.fightMusic.PlayDelayed(2.0f);
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
