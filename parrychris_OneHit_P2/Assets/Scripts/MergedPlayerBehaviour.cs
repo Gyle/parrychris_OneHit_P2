@@ -38,7 +38,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private float moveVelocity;
 
     //Player
-    public string character = "default";
     private bool onRightSide = true;
     private bool slidingoffhead = false;
     private bool groundpounding = false;
@@ -64,18 +63,29 @@ public class MergedPlayerBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyScript = enemy.GetComponent<MergedPlayerBehaviour>();
 
-        if(character == "samurai") {
-            Debug.Log(this.gameObject.name + " has selected " + character);
+        int character = 2; //Default character
+        if(gameObject.tag == "Player1"){character = DataStore.PlayerOneCharacter;}
+        else{character = DataStore.PlayerTwoCharacter;}
+
+        Debug.Log(gameObject.name + " has selected " + character);
+        if(character == 1) {
             this.dashLength = 0.15f;
             this.dashCooldown = 0.75f;
-            this.jumpSpeed = 35;
+            this.jumpSpeed = 25;
             //TODO attack range
             this.attackRange = 2;
             this.maxBlockDur = 1.5f;
             this.blockCD = 1.2f;
             this.playerSpeed = 7;
             doubleJump = true;
-            //animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Assets/Animations/Samurai/ata1");
+            GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Samurai/ata1");
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.flipX = !renderer.flipX;
+            //Debug.Log("Active? " + animator.gameObject.activeSelf);
+        } else if(character == 3) {
+            //New guy stats here
+        } else {
+            //Nothing, you are the default
         }
     }
 
