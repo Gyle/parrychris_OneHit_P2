@@ -94,6 +94,10 @@ public class MergedPlayerBehaviour : MonoBehaviour
         } else {
             //Nothing, you are the default
         }
+
+        if(DataStore.controller) {
+            this.controls = Resources.Load<Controls>("Player1PS3Controller");
+        }
     }
 
     private void handleBlockMeter(){
