@@ -121,6 +121,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Called every frame
     void Update()
     {
+        if(!DataStore.ready){return;}
         handleBlockMeter();
 
         if (gameOver)
@@ -202,6 +203,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Called every frame 
     void FixedUpdate()
     {
+        if(!DataStore.ready){return;}
         if(!isPlayer1){
             Debug.Log("block value for P | " + currentBlockDur);
         }
