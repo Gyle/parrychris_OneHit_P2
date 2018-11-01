@@ -71,6 +71,10 @@ public class TomsButtonHandler : MonoBehaviour {
         playerTwoSelect.SetActive(false);
 	}
 
+    public void ToCharacterSelect(){
+        SceneManager.LoadScene("Character_Menu");
+    }
+
 	public void playMap1(){
 		SceneManager.LoadScene("Map1");
 	}
