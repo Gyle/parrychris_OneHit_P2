@@ -73,7 +73,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             this.dashCooldown = 0.75f;
             this.jumpSpeed = 25;
             //TODO attack range
-            this.attackRange = 2;
+            this.attackRange = 1;
             this.maxBlockDur = 1.5f;
             this.blockCD = 1.2f;
             this.playerSpeed = 7;
@@ -81,9 +81,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
             GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Samurai/ata1");
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.flipX = !renderer.flipX;
-            //Debug.Log("Active? " + animator.gameObject.activeSelf);
         } else if(character == 3) {
             //New guy stats here
+            this.attackRange = 2;
+            GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Munk/Munk");
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.flipX = !renderer.flipX;
         } else {
             //Nothing, you are the default
         }
