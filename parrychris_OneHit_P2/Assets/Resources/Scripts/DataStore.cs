@@ -19,6 +19,8 @@ public static class DataStore
     public static int p1Wins = 0;
     public static int p2Wins = 0;
     public static SpriteManager spriteManager = new SpriteManager();
+    public static Controls p1Controls;
+    public static Controls p2Controls;
 
     // This variable represents which character player one selected
     public static int PlayerOneCharacter{

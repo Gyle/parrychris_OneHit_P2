@@ -67,15 +67,27 @@ public class MergedPlayerBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+     
+   
         //Initializes the players RigidBody, Animator and EnemyScript
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         enemyScript = enemy.GetComponent<MergedPlayerBehaviour>();
 
         int character = 2; //Default character
-        if(gameObject.tag == "Player1"){character = DataStore.PlayerOneCharacter;}
-        else{character = DataStore.PlayerTwoCharacter;}
+        if(gameObject.tag == "Player1"){
+            character = DataStore.PlayerOneCharacter;
+            if(DataStore.p1Controls!=null){
+                this.controls = DataStore.p1Controls;
+            }
+        }
+        else{
+            character = DataStore.PlayerTwoCharacter;
+            if (DataStore.p2Controls != null)
+            {
+                this.controls = DataStore.p2Controls;
+            }
+        }
 
         Debug.Log(gameObject.name + " has selected " + character);
         if(character == 1) {
