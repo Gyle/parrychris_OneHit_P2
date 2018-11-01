@@ -246,7 +246,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 moveVelocity = playerSpeed;
             }
             //Dash
-            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing && !shieldUp)
             {
                 //Set the time for next earliest dash
                 nextDash = Time.time + dashCooldown;
@@ -280,7 +280,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
                 moveVelocity = playerSpeed;
             }
             //Dash
-            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing)
+            if (Input.GetKey(controls.dash) && Time.time > nextDash && !dashing && !shieldUp)
             {
                 //Set the time for next earliest dash
                 nextDash = Time.time + dashCooldown;
