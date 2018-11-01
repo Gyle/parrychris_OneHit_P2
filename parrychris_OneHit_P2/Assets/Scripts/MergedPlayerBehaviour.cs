@@ -55,9 +55,21 @@ public class MergedPlayerBehaviour : MonoBehaviour
     private float gameOverTime;
     private float gameOverWait = 2f;
 
+    //audio
+    private AudioSource jumpSound;
+    private AudioSource jabSound;
+    private AudioSource groundPoundSound;
+    private AudioSource dashSound;
+
     // Use this for initialization
     void Start()
     {
+        //initialise the sound sources
+        AudioSource[] sounds = GetComponents<AudioSource>();
+        jumpSound = sounds[0];
+        jabSound = sounds[1];
+        groundPoundSound = sounds[2];
+        dashSound = sounds[3];
         //Initializes the players RigidBody, Animator and EnemyScript
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -149,11 +161,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
 
         // walking animation
-        if ( ( Input.GetKeyDown(controls.left) || Input.GetKeyDown(controls.right) ) && !shieldUp && grounded)
+        if ( !dashing && ( Input.GetKeyDown(controls.left) || Input.GetKeyDown(controls.right) ) && !shieldUp && grounded)
         {
             animator.SetBool("Walking", true);    
         }
-        if ((Input.GetKeyUp(controls.left) || Input.GetKeyUp(controls.right)) && !shieldUp && grounded)
+        if (!dashing && (Input.GetKeyUp(controls.left) || Input.GetKeyUp(controls.right)) && !shieldUp && grounded)
         {
             animator.SetBool("Walking", false);
         }
@@ -175,6 +187,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         else if (Input.GetKeyDown(controls.jab) && shieldUp == false)
         {    //KeyDown is beginning of melee animation and launchAttack
             animator.SetBool("Jab_attack", true);
+            this.jabSound.Play();
             if(attackRange == 2) {
                 LaunchAttack(attackHitboxes[2]);
             } else {
@@ -257,12 +270,12 @@ public class MergedPlayerBehaviour : MonoBehaviour
 
             //player is in the air and can move left/right at half speed.
             //move left
-            if (Input.GetKey(controls.left) && !shieldUp)
+            if (!dashing && Input.GetKey(controls.left) && !shieldUp)
             {
                 moveVelocity = -playerSpeed;
             }
             //move right
-            if (Input.GetKey(controls.right) && !shieldUp)
+            if (!dashing && Input.GetKey(controls.right) && !shieldUp)
             {
                 moveVelocity = playerSpeed;
             }
@@ -317,6 +330,8 @@ public class MergedPlayerBehaviour : MonoBehaviour
     {
         rb2d.velocity = new Vector2(
                 rb2d.velocity.x, -jumpSpeed);
+        if(!this.groundPoundSound.isPlaying)
+            this.groundPoundSound.Play();
     }
 
     // this method will push the player off the other player's head
@@ -413,6 +428,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
             dashing = true;
             //Set time dash should stop
             dashStop = Time.time + dashLength;
+            this.dashSound.Play();
 
         }
         if (shieldUp)
@@ -421,12 +437,14 @@ public class MergedPlayerBehaviour : MonoBehaviour
         }
         else if (dashDir)
         {
-            //ensures that the only force acting 
+            //ensures that the only force acting during dash is horizontal force
+            this.moveVelocity = 0;
             rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector2(-dashSpeed, 0));
         }
         else
         {
+            this.moveVelocity = 0;
             rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector2(dashSpeed, 0));
         }
@@ -439,6 +457,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         Debug.Log("Double: " + doubleJump + ", jumpCount: " + jumpCount);
         if (grounded || (doubleJump && jumpCount < 2))
         {
+            this.jumpSound.Play();
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             animator.SetBool("isJumping", true);
             grounded = false;
