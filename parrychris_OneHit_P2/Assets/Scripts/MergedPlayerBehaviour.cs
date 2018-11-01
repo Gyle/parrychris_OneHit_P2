@@ -7,7 +7,6 @@ public class MergedPlayerBehaviour : MonoBehaviour
 {
 
     public Controls controls;
-    public bool isPlayer1;
 
     //Dash
     private int dashSpeed = 4000;
@@ -517,7 +516,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         if (!gameOver)
         {
             //Turn on win message - player 1 win message must be first child of canvas.
-            int childIndex = this.isPlayer1 ? 0 : 1;
+            int childIndex = gameObject.tag == "Player1" ? 0 : 1;
             GameObject child = canvas.transform.GetChild(childIndex).gameObject;
             child.gameObject.GetComponent<Image>().enabled = true;
             //=============================================================================================//
