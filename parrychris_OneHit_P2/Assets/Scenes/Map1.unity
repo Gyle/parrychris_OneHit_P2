@@ -32919,7 +32919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: 8f9c4accb416b3d408f7b0e51d615b15, type: 2}
-  isPlayer1: 1
   attackHitboxes:
   - {fileID: 1986714499}
   - {fileID: 1860976560}
@@ -32927,7 +32926,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemy: {fileID: 1565138146}
   canvas: {fileID: 503501985}
-  scoreboard: {fileID: 1668940498}
+  scoreboard: {fileID: 903225115}
 --- !u!61 &1053227048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49207,7 +49206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: 5e6acf870c6396742bbb009f3bc8015e, type: 2}
-  isPlayer1: 0
   attackHitboxes:
   - {fileID: 1508885283}
   - {fileID: 1033703777}
@@ -49215,7 +49213,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemy: {fileID: 1053227042}
   canvas: {fileID: 503501985}
-  scoreboard: {fileID: 903225115}
+  scoreboard: {fileID: 1668940498}
 --- !u!61 &1565138152
 BoxCollider2D:
   m_ObjectHideFlags: 0
