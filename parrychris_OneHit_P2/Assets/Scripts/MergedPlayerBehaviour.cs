@@ -485,6 +485,11 @@ public class MergedPlayerBehaviour : MonoBehaviour
             //PlayerOne hit successful
             //Debug.Log("Player One Wins!");
             won = true;
+            if(gameObject.tag == "Player1"){
+                DataStore.p1Wins++;
+            } else if(gameObject.tag == "Player2"){
+                DataStore.p2Wins++;
+            }
             GameOver();
         }
     }
