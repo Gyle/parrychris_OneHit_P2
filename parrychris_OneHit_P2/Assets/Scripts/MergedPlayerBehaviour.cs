@@ -323,11 +323,13 @@ public class MergedPlayerBehaviour : MonoBehaviour
             grounded = true;
             groundpounding = false;
             jumpCount = 0;
+            animator.SetBool("isJumping", false);
         }
         else if (coll.transform.tag.Contains("Head"))
         {
             grounded = true;
             SlideOffHead();
+            animator.SetBool("isJumping", false);
         }
     }
 
