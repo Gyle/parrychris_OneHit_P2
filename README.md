@@ -28,7 +28,21 @@ Block: A blocking mechanic which players can use in defense of attacks from the 
 
 ### Assets
 
+#### Libraries
+We do not use any libraries, except for the built in Unity API.
+
+#### Music
+
+#### Sprites / Textures
+Characters: The original character was left in the game and finished by Shawn. The other two character were all designed 
+by Shawn
+
+Maps: Brad made everything on Map1 except for the trees, roof, and some miscs from the original assets. Likewise, Will 
+made everything on Map2 except for the trees which he got from the Unity Store. 
+
+
 ### Installation and Setup
+Run the mac build included in the root directory on this repo. Launcher settings do not matter.
 
 ### How to Play
 In the main menu there is an instructions button showing the controls. You are able to change the controls in the 
