@@ -31,7 +31,8 @@ Block: A blocking mechanic which players can use in defense of attacks from the 
 #### Libraries
 We do not use any libraries, except for the built in Unity API.
 
-#### Music
+#### Music /Sfx
+Brad got sample sounds from freesounds.org then made proper Sfx by merging them into their own sound files. 
 
 #### Sprites / Textures
 Characters: The original character was left in the game and finished by Shawn. The other two character were all designed 
