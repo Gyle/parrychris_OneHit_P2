@@ -79,11 +79,11 @@ The game is over when a player wins three rounds. A round is won when one player
 
 
 ### Link of Each Developers .md file
-Kyle: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/claudikyle_individual_readme.md
+Kyle: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/IndividualReports/claudikyle.md
 
-Tomas:
+Thomas: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/IndividualReports/edwardthom.md
 
-Oliver:
+Oliver: 
 
 
 
