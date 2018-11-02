@@ -5957,7 +5957,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 63107265}
-        m_MethodName: TogglePS3ControllerPlayerTwo
+        m_MethodName: TogglePS3ControllerPlayerOne
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1352156603}
@@ -8497,7 +8497,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 63107265}
-        m_MethodName: TogglePS3ControllerPlayerOne
+        m_MethodName: TogglePS3ControllerPlayerTwo
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2004420478}
