@@ -74,11 +74,16 @@ instructions menu by selecting a control and pressing the keycode you want to us
 To win a round you need to successfully hit the enemy player once. There is an option to enable PS3 controllers 
 for player one and player two.
 
-*Controls*
-
 
 
 ### Link of Each Developers .md file
+Kyle: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/claudikyle_individual_readme.md
+
+Tomas:
+
+Oliver:
+
+
 
 # ======= NEW README.md ABOVE======
 
