@@ -392,9 +392,19 @@ public class TomsButtonHandler : MonoBehaviour {
 
     private void modifyKey(KeyCode newKey){
         this.btnPressed.Play();//make btn pressed sound
+
         TomsControlTextScript child = this.buttonCheckingFor.GetComponentInChildren<TomsControlTextScript>();
+
         //change the key code using reflection
         child.controls.GetType().GetField(child.command).SetValue(child.controls,newKey);
+        if(this.buttonCheckingFor.name == "Player1"){
+            Debug.Log("Name was (p1) " + this.buttonCheckingFor.name);
+            DataStore.p2Controls = child.controls;
+        }else{
+            Debug.Log("Name was " + this.buttonCheckingFor.name);
+            DataStore.p1Controls = child.controls;
+        }
+        
         //refresh the text field.
         child.Start();
         //unselect the button

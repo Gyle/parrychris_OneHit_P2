@@ -1,3 +1,51 @@
+# ======= NEW README.md BELOW======
+
+## Architecture
+This document will discuss the architecture of the game in terms of level structure and game loop. This topics to be 
+discussed includes level structure, game loop, assets, installation and setup, how to play, and link of each developers .md file.
+
+### Level Structure
+how prefabs are organised, z depth organisation, 3d scene 2d gameplay, interesting aspects only
+
+### Game Loop
+#### PLAYERS
+The game will be playable on PC for 2 players on one machine. The game can be played by two people sharing one keyboard. It also allows for console controller inputs for a more immersive gaming experience. The target audience for this game would be people who are interested in multiplayer, competitive old school fighting games. Controls can also be customized from the menu screen.
+
+#### ACTIONS
+Players can perform a number of actions in the game to defeat their opponent. The level design of the game forces players to navigate rooftops and try and out position their opponent, adding a strategic element to the game. Each players move-set consists of a short attack, dash-attack, jump, move and block.
+
+Jump: A simple jump mechanic allowing players to jump onto rooftops.
+
+Double Jump: An extension of this jump mechanic allowing players to jump higher by pressing jump twice.
+
+Dash: A dash mechanic allowing the player to rapidly move across the map in a attack position towards their opponent. This mechanic increases the pace of the game and makes for fast strategic attacks. Other players can avoid dash by either blocking or jumping. The dash attack is placed on a 3 second cool-down, and is seen as the 'Over Powered' move.
+
+Ground Pound: A mechanic which allows the player to attack downwards from an aerial position. This mechanic also allows for more control over jumping as players can position downward when they choose.
+
+Jab: A simple jab mechanic used for close encounters.
+
+Block: A blocking mechanic which players can use in defense of attacks from the other player. There is a time limit on how long you can use this mechanic so it does not take away from the fast-paced gameplay.
+
+### Assets
+
+### Installation and Setup
+
+### How to Play
+In the main menu there is an instructions button showing the controls. You are able to change the controls in the 
+instructions menu by selecting a control and pressing the keycode you want to use. It is a best of three wins game. 
+To win a round you need to successfully hit the enemy player once. There is an option to enable PS3 controllers 
+for player one and player two.
+
+*Controls*
+
+
+
+### Link of Each Developers .md file
+
+# ======= NEW README.md ABOVE======
+
+# ======= OLD README.md BELOW======
+
 # One Hit Prototype    
 "One Hit" is a fast paced 2D fighting game, with a 3D background. The twist is that it only requires one successful attack to defeat the other player, winning the round.
 
