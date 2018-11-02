@@ -1,3 +1,29 @@
+# ======= NEW README.md BELOW======
+
+## Architecture
+This document will discuss the architecture of the game in terms of level structure and game loop. This topics to be 
+discussed includes level structure, game loop, assets, installation and setup, how to play, and link of each developers .md file.
+
+### Level Structure
+how prefabs are organised, z depth organisation, 3d scene 2d gameplay, interesting aspects only
+
+### Game Loop
+mechanics of the game
+
+### Assets
+
+### Installation and Setup
+
+### How to Play
+
+
+
+### Link of Each Developers .md file
+
+# ======= NEW README.md ABOVE======
+
+# ======= OLD README.md BELOW======
+
 # One Hit Prototype    
 "One Hit" is a fast paced 2D fighting game, with a 3D background. The twist is that it only requires one successful attack to defeat the other player, winning the round.
 
