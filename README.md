@@ -69,10 +69,12 @@ made everything on Map2 except for the trees which he got from the Unity Store.
 Run the mac build included in the root directory on this repo. Launcher settings do not matter.
 
 ### How to Play
-In the main menu there is an instructions button showing the controls. You are able to change the controls in the 
-instructions menu by selecting a control and pressing the keycode you want to use. It is a best of three wins game. 
-To win a round you need to successfully hit the enemy player once. There is an option to enable PS3 controllers 
-for player one and player two.
+The game is a two player fighting game where a single hit wins the round.
+In the main menu there is an instructions button showing the controls for each player. You are able to change the controls in the 
+instructions menu by selecting a control and pressing the keycode you want to use. 
+
+The game is over when a player wins three rounds. A round is won when one player achieves a single hit on the other player. A hit can be a jab, dash or groundpound. There is also PS3 controller support which can be enabled from the instructions menu. A PS3 controller must be plugged into the computer for a character to fight if the PS3 control scheme is turned on
+
 
 
 
