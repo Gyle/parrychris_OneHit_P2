@@ -186,6 +186,7 @@ public class MergedPlayerBehaviour : MonoBehaviour
         //  Jump
         if (Input.GetKeyDown(controls.jump) && !shieldUp)
         {   //sets animator variables to true
+            animator.SetBool("Walking", false);
             animator.SetBool("isJumping", true);
             animator.SetBool("Grounded", false);
             Jump();
