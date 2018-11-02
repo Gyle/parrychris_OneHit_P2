@@ -15,6 +15,12 @@ mechanics of the game
 ### Installation and Setup
 
 ### How to Play
+In the main menu there is an instructions button showing the controls. You are able to change the controls in the 
+instructions menu by selecting a control and pressing the keycode you want to use. It is a best of three wins game. 
+To win a round you need to successfully hit the enemy player once. There is an option to enable PS3 controllers 
+for player one and player two.
+
+*Controls*
 
 
 
