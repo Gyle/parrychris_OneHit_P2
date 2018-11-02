@@ -42,6 +42,13 @@ Jab: A simple jab mechanic used for close encounters.
 
 Block: A blocking mechanic which players can use in defense of attacks from the other player. There is a time limit on how long you can use this mechanic so it does not take away from the fast-paced gameplay.
 
+#### Character In-Depth
+Monk: This character is based on the Street Fighter 3 characters Rolento and The King of Fighters characters Billy Kane. He is a Chinese Shaolin Monk, and has a longer-range attack than the other characters.
+
+Samurai: This character was inspired by Japanese Samurai. This character has the ability to double jump but each jump is small, and his attack is shorter than other characters.
+
+Ninja: This character is most balanced character in this game. He is based on the model of a ninja on Ninja, and he could be most power full characters in this game.
+
 ### Assets
 
 #### Libraries
