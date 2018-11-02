@@ -5,7 +5,18 @@ This document will discuss the architecture of the game in terms of level struct
 discussed includes level structure, game loop, assets, installation and setup, how to play, and link of each developers .md file.
 
 ### Level Structure
-how prefabs are organised, z depth organisation, 3d scene 2d gameplay, interesting aspects only
+Z-Depth organisation: When making the map levels, we considered the z-axis to add visual depth to the game to allow for 
+immersion of gameplay. As opposed to a flat background that offers no immersion. Furthermore, the GUI elements have a closer Z index because characters should not walk in front of menu buttons. This elements are the following: 3, 2, 1, Fight!, Player X Wins!, Score boards on each side, and end game menu.
+
+how prefabs are organised: We organised misc prefabs / props as decorations to add visual 
+interests, but not to take away from gameplay. Furthermore, we stuck to the original theme of an Asian setting since 
+there is a lot references for design inspiration. Regarding GUI, the scoreboard and menu prefabs were placed 
+in the canvas object because anything inside canvas will be tracked / fixed by the gameplay camera.
+
+3d scene 2d gameplay: We stuck with this because it adds an interesting visual contrast. Moreover, it adds a point of 
+difference because there are many 2d fighting game that exists with 2d backgrounds. In terms of gameplay, we can 
+easily communicate to the player map information. This is because we can add more detail in 3d since it 
+allows for a better understanding of where you are positioned on the map.
 
 ### Game Loop
 #### PLAYERS
