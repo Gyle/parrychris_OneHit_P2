@@ -8,7 +8,23 @@ discussed includes level structure, game loop, assets, installation and setup, h
 how prefabs are organised, z depth organisation, 3d scene 2d gameplay, interesting aspects only
 
 ### Game Loop
-mechanics of the game
+#### PLAYERS
+The game will be playable on PC for 2 players on one machine. The game can be played by two people sharing one keyboard. It also allows for console controller inputs for a more immersive gaming experience. The target audience for this game would be people who are interested in multiplayer, competitive old school fighting games. Controls can also be customized from the menu screen.
+
+#### ACTIONS
+Players can perform a number of actions in the game to defeat their opponent. The level design of the game forces players to navigate rooftops and try and out position their opponent, adding a strategic element to the game. Each players move-set consists of a short attack, dash-attack, jump, move and block.
+
+Jump: A simple jump mechanic allowing players to jump onto rooftops.
+
+Double Jump: An extension of this jump mechanic allowing players to jump higher by pressing jump twice.
+
+Dash: A dash mechanic allowing the player to rapidly move across the map in a attack position towards their opponent. This mechanic increases the pace of the game and makes for fast strategic attacks. Other players can avoid dash by either blocking or jumping. The dash attack is placed on a 3 second cool-down, and is seen as the 'Over Powered' move.
+
+Ground Pound: A mechanic which allows the player to attack downwards from an aerial position. This mechanic also allows for more control over jumping as players can position downward when they choose.
+
+Jab: A simple jab mechanic used for close encounters.
+
+Block: A blocking mechanic which players can use in defense of attacks from the other player. There is a time limit on how long you can use this mechanic so it does not take away from the fast-paced gameplay.
 
 ### Assets
 
