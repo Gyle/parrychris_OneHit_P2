@@ -18,6 +18,11 @@ difference because there are many 2d fighting game that exists with 2d backgroun
 easily communicate to the player map information. This is because we can add more detail in 3d since it 
 allows for a better understanding of where you are positioned on the map.
 
+Map design: We decided to use the fighting pit layout, that being elevation on the edges and a lower terrain in the middle. 
+This forces players to make a strategic decision to engage or jump onto one of the roof tops. It also makes use of the 
+air dash mechanic to create some Esports level highlight reels. Furthermore, it allows for utilisation of our new move, 
+ground pound. This is because there is elevation to help players get above their enemy's head.
+
 ### Game Loop
 #### PLAYERS
 The game will be playable on PC for 2 players on one machine. The game can be played by two people sharing one keyboard. It also allows for console controller inputs for a more immersive gaming experience. The target audience for this game would be people who are interested in multiplayer, competitive old school fighting games. Controls can also be customized from the menu screen.
