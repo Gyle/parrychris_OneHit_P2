@@ -23,11 +23,12 @@
 * Fixed infinite dashing + jump glitch [All]
 * Fixed issue where players would not maintain velocity when switching sides [All]
 
-### My Most Interesting Code 
+### My Most Interesting Code
+
 ### My Most Proud of Code 
 My most proud of code is something that took me far too long to figure out, hence giving me great satisfactioon upon completion. Upon receiving the project, there existed a bug which would cause players to spazz and break should one dash over or under the other. This was a pretty major bug, and was being caused by the PlayerDirection script. The PlayerDirection script simply rotates the characters 180 degrees upon switching sides. This is good and solves the switching sides issue, however __also__ rotates their velocities, causing the known bug. My first attempts to fix this were to find means of rotating the character without rotating the velocities, but ended up with nothing. The next (and final) solution I devised was to add a direction to each dash within the player script. Utilizing the existing onRightSide boolean value, I added a dash direction boolean (to keep it simple) to determine dash direction. A super simple fix that works as we need.
 
-This can be found under the [Merged Behaviour Script](https://github.com/Gyle/parrychris_OneHit_P2/blob/master/parrychris_OneHit_P2/Assets/Resources/Scripts/MergedPlayerBehaviour.cs) between lines 447 and 462
+This can be found in the [Merged Behaviour](https://github.com/Gyle/parrychris_OneHit_P2/blob/master/parrychris_OneHit_P2/Assets/Resources/Scripts/MergedPlayerBehaviour.cs) script between lines 447 and 462
 
 # Learning Reflection
 ### What I have Learnt
