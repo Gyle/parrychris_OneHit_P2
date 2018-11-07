@@ -83,7 +83,7 @@ Kyle: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/IndividualReports
 
 Thomas: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/IndividualReports/edwardthom.md
 
-Oliver: 
+Oliver: https://github.com/Gyle/parrychris_OneHit_P2/blob/master/IndividualReports/barroliv.md
 
 *Documentation Video:* https://youtu.be/6wtTLI_kW6A
 
